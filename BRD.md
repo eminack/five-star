@@ -79,16 +79,14 @@ General
 
 ## Mock images
 
-[Image: image.png]
-[Image: image.png]
-[Image: image.png]
+![Your Opinion Matter](/img/your-opinion-matters.png)
+![Scale](/img/scale.png)
+![Rate](/img/rate.png)
+![Rate with Title](/img/rate-with-title.png)
+![Rate With title and Hint](/img/rate-with-title-hint.png)
+![Screenshot select](/img/screenshot-select.png)
+![Screenshot select area](/img/screenshot-select-area.png)
 
-[Image: image.png]
-
-[Image: image.png]
-
-[Image: image.png]
-[Image: image.png]
 ## References
 
 * Google Forms
