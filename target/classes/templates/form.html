@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="common/header::header"></div>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-text" style="size: A5;height: max-content;font-size: xx-large;color: white" th:text="${form.name}">
+        </span>
+    </nav>
+    <div class="row">
+        <div class="dropdown col col-md-9">
+            <button class="btn btn-warning btn-lg dropdown-toggle" style="font-size: large" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Add Widget
+            </button>
+            <div class="dropdown-menu w-25"  aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item btn-light btn-lg" data-toggle="modal" data-target="#FiveStarModal" style="font-size: medium" type="button">Five-Star</button>
+                <button class="dropdown-item btn-light btn-lg" style="font-size: medium" type="button">Short-Answer</button>
+                <button class="dropdown-item btn-light btn-lg" style="font-size: medium" type="button">HMD-widget</button>
+                <button class="dropdown-item btn-light btn-lg" style="font-size: medium" type="button">Scale Widget</button>
+            </div>
+        </div>
+         <button class="btn btn-dark btn-lg" style="font-size: large;float: right" type="button" onclick="viewForm()">
+             <i class="far fa-eye"></i>
+               Preview Form
+            </button>
+    </div>
+
+
+    <div th:insert="common/fivestar-modal.html"></div>
+    <br>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 style="font-size: large;text-align: center">List of Widgets</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th style="font-size: large" width="40%">Name</th>
+                    <th style="font-size: large" width="40%">Type</th>
+                    <th width="20%"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="widget:${form.widgets}">
+                    <tr>
+                        <td style="font-size:medium"  th:text="${widget.widgetName}"></td>
+                        <td style="font-size:medium" th:text="${widget.widgetType}"></td>
+                        <td><a type="button" class="btn btn-success" style="font-size: medium"
+                               th:href="@{/update-widget(formId=${form.formId},widgetId=${widget.widgetId})}">Update</a>
+                            <a type="button" class="btn btn-danger" style="font-size: medium" th:data-thing="${widget.widgetId}"
+                               onclick="deleteWidget(this.getAttribute('data-thing'));">Delete</a>
+                            <a type="button" class="btn btn-primary" style="font-size: medium"
+                               th:href="@{/view-widget(formId=${form.formId},widgetId=${widget.widgetId})}">View</a>
+                        </td>
+
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script th:inline="javascript">
+    function CreateWidget() {
+            console.log("name");
+            let obj;
+            let widgetName = $('#inputName').val(),title = $('#inputTitle').val();
+            let smiley1 = $('#smiley1').val(),smiley2 = $('#smiley2').val(),smiley3 = $('#smiley3').val();
+            let smiley4 = $('#smiley4').val(),smiley5 = $('#smiley5').val()
+            let url = "http://localhost:8080/add-widget?id=" +[[${form.formId}]];
+            document.getElementById("inputName").value = "";
+            document.getElementById("inputTitle").value = "";
+            document.getElementById("smiley1").value = "";
+            document.getElementById("smiley2").value = "";
+            document.getElementById("smiley3").value = "";
+            document.getElementById("smiley4").value = "";
+            document.getElementById("smiley5").value = "";
+           fetch(url,{
+               method:'POST',
+                headers:{'content-type' : 'application/json'},
+                body : JSON.stringify({
+                    'widgetName': widgetName,
+                    'widgetType':"Five Star",
+                    'widgetVersion': 1,
+                    'templateId': "fivestar",
+                    'data': {
+                        'title': title,
+                        'smiley1': smiley1,
+                        'smiley2': smiley2,
+                        'smiley3': smiley3,
+                        'smiley4': smiley4,
+                        'smiley5': smiley5
+                    }
+                })
+           }).then(res => res.json()).
+           then(data => obj=data).
+           then(()=>console.log(obj)).then(()=>window.location.href = "http://localhost:8080/update-form?id="+obj["formId"]);
+            return false;
+    }
+    function deleteWidget(widgetId) {
+        //console.log(widgetId);
+        let obj;
+        let url = "http://localhost:8080/delete-widget?formId="+[[${form.formId}]]+"&widgetId="+widgetId;
+        console.log(url);
+        fetch(url,{method:'POST'}).
+        then(results=>results.json()).
+        then(data => obj=data).
+        then(()=>console.log(obj)).then(()=>window.location.href = "http://localhost:8080/update-form?id="+obj["formId"]);
+    }
+    function viewForm() {
+        let url = "http://localhost:8080/view-form?id="+[[${form.formId}]];
+        window.location.href = url;
+    }
+</script>
+</body>
+</html>

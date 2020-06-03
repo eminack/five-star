@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="common/header::header"></div>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-dark bg-primary">
+        <span class="navbar-text" style="size: A5;height: max-content;font-size: xx-large;color: black" th:text="${form.name}">
+        </span>
+    </nav>
+    <br>
+    <div class="container" style="width:800px">
+        <th:block th:each="widget : ${form.widgets}">
+            <div th:replace="'common/'+${widget.templateId}::${widget.templateId}(${widget})">
+            </div>
+            <br>
+        </th:block>
+    </div>
+</div>
+</body>
+</html>
