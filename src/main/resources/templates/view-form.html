@@ -6,17 +6,24 @@
 <body>
 <div class="container">
     <nav class="navbar navbar-dark bg-primary">
-        <span class="navbar-text" style="size: A5;height: max-content;font-size: xx-large;color: black" th:text="${form.name}">
+        <span class="navbar-text" style="size: A3;height: max-content;font-size: xx-large;color: black" th:text="${form.name}">
         </span>
     </nav>
     <br>
     <div class="container" style="width:800px">
         <th:block th:each="widget : ${form.widgets}">
-            <div th:replace="'common/'+${widget.templateId}::${widget.templateId}(${widget})">
+            <div th:replace="'form-widgets/'+${widget.templateId}::${widget.templateId}(${widget})">
             </div>
             <br>
         </th:block>
+        <div class="wrapper" style="text-align: center">
+        <button type="button" class="btn btn-success btn-lg" style="font-size:x-large" onclick="submitForm()">Submit</button>
+        </div>
     </div>
 </div>
 </body>
+<script th:inline="javascript">
+    var formId = [[${form.formId}]];
+</script>
+<script type="text/javascript" src="/js/view-form.js"></script>
 </html>

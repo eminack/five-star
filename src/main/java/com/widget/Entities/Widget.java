@@ -9,6 +9,7 @@ public class Widget {
     private String widgetType;
     private int widgetVersion;
     private String templateId;
+
     private HashMap<String,String> data;
 
     public String getWidgetType() {
