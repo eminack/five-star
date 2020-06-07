@@ -47,4 +47,9 @@ public class FormService {
         form.getWidgets().removeIf(widget -> (widget.getWidgetId()).compareTo(widgetId)==0);
         formRepository.save(form);
     }
+
+    public Widget findWidgetInFormById(String formId, String widgetId) {
+        Form form = formRepository.findById(formId).get();
+        return form.getWidgets().stream().filter(p->((p.getWidgetId()).compareTo(widgetId))==0).findFirst().get();
+    }
 }

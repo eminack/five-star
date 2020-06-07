@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="header.html"></div>
+</head>
+<body>
+<div th:fragment="fivestar(widget)">
+    <div class="card border-dark text-center text">
+        <div class="card-body bg-light">
+            <div class = "rating-box">
+                <h3 th:text="${widget.data.title}" style="font-weight: bold">Example heading</h3>
+                <input th:id=${widget.widgetId} th:name="${widget.widgetId}" value="2.5" class="rating-loading" size="md">
+
+                <script th:inline="javascript">
+                    var smileylist = {1:[[${widget.data.smiley1}]],2:[[${widget.data.smiley2}]],3:[[${widget.data.smiley3}]],4:[[${widget.data.smiley4}]],5:[[${widget.data.smiley5}]]};
+                    console.log(smileylist);
+                    var id = [[${widget.widgetId}]];
+                    console.log("id = " + id);
+                    $('#'+id).rating({
+                        step: 1,
+                        starCaptions: smileylist,
+                        starCaptionClasses: {1: 'text-danger', 2: 'text-warning', 3: 'text-info', 4: 'text-primary', 5: 'text-success'}
+                    });
+                    $('#'+id).on('rating:change',function(event, value, caption) {
+                        console.log(value);
+                        console.log(caption);
+                        var url = "http://localhost:8080/SingleWidgetResponse";
+                        fetch(url, {
+                            method: 'POST',
+                            headers: {'content-type': 'application/json'},
+                            body: JSON.stringify({
+                                'userId': 'xyz',
+                                'widgetId': id,
+                                'widgetType': "Five Star",
+                                'data': {
+                                    'rating-value': value
+                                }
+                            })
+                        }).then(res => res.toString()).then(()=>alert("Your Response has been Recorded Successfully"));
+                        $('#'+id).rating('refresh', {disabled: true, showClear: false, showCaption: true});
+                    });
+
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
