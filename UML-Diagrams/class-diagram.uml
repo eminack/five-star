@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="480.6336419753086" y="629.0">com.widget.Services.WidgetService</node>
+    <node x="135.05" y="0.0">com.widget.Entities.Widget</node>
+    <node x="1125.8211419753086" y="431.0">com.widget.Controllers.SingleWidgetResponseController</node>
+    <node x="928.2586419753085" y="210.0">com.widget.Repositories.SingleWidgetResponseRepository</node>
+    <node x="174.38148148148144" y="509.0">com.widget.Repositories.FormRepository</node>
+    <node x="114.67708333333331" y="1157.0">com.widget.Entities.FormResponse</node>
+    <node x="0.0" y="885.0">com.widget.Controllers.FormController</node>
+    <node x="34.02604166666663" y="1421.0">com.widget.Services.FormResponseService</node>
+    <node x="963.3628086419752" y="286.0">com.widget.Services.SingleWidgetResponseService</node>
+    <node x="1132.8419753086418" y="0.0">com.widget.Entities.SingleWidgetResponse</node>
+    <node x="112.05956790123452" y="585.0">com.widget.Services.FormService</node>
+    <node x="444.046875" y="1323.0">com.widget.Repositories.LocalizationRepository</node>
+    <node x="562.9259259259259" y="210.5">com.widget.Entities.SingleWidget</node>
+    <node x="0.0" y="1345.0">com.widget.Repositories.FormResponseRepository</node>
+    <node x="245.6595679012345" y="210.0">com.widget.Entities.Form</node>
+    <node x="538.546875" y="1157.0">com.widget.Entities.Localization</node>
+    <node x="150.046875" y="1566.0">com.widget.Controllers.FormResponseController</node>
+    <node x="471.7814814814815" y="509.0">com.widget.Repositories.WidgetRepository</node>
+    <node x="608.2586419753086" y="940.0">com.widget.Controllers.WidgetController</node>
+    <node x="356.3009259259259" y="951.0">com.widget.Controllers.RootController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.widget.Controllers.FormResponseController" target="com.widget.Entities.FormResponse">
+      <point x="62.25" y="-36.5" />
+      <point x="336.796875" y="1541.0" />
+      <point x="363.52604166666663" y="1541.0" />
+      <point x="363.52604166666663" y="1320.0" />
+      <point x="336.0520833333333" y="1320.0" />
+      <point x="94.875" y="69.0" />
+    </edge>
+    <edge source="com.widget.Controllers.RootController" target="com.widget.Services.WidgetService">
+      <point x="74.99999999999994" y="-47.5" />
+      <point x="531.3009259259259" y="860.0" />
+      <point x="554.8836419753086" y="860.0" />
+      <point x="-74.25" y="81.0" />
+    </edge>
+    <edge source="com.widget.Controllers.WidgetController" target="com.widget.Services.WidgetService">
+      <point x="-68.75" y="-58.5" />
+      <point x="677.0086419753086" y="860.0" />
+      <point x="703.3836419753086" y="860.0" />
+      <point x="74.25" y="81.0" />
+    </edge>
+    <edge source="com.widget.Services.SingleWidgetResponseService" target="com.widget.Entities.SingleWidgetResponse">
+      <point x="0.0" y="-47.5" />
+      <point x="1167.8628086419753" y="261.0" />
+      <point x="1199.7586419753084" y="261.0" />
+      <point x="1199.7586419753084" y="185.0" />
+      <point x="1204.8419753086418" y="185.0" />
+      <point x="-24.0" y="80.0" />
+    </edge>
+    <edge source="com.widget.Repositories.FormResponseRepository" target="com.widget.Entities.FormResponse">
+      <point x="0.0" y="-13.0" />
+      <point x="102.0" y="1320.0" />
+      <point x="146.30208333333331" y="1320.0" />
+      <point x="-94.875" y="69.0" />
+    </edge>
+    <edge source="com.widget.Controllers.RootController" target="com.widget.Services.FormService">
+      <point x="-75.00000000000006" y="-47.5" />
+      <point x="381.30092592592587" y="860.0" />
+      <point x="361.2262345679012" y="860.0" />
+      <point x="99.66666666666669" y="125.0" />
+    </edge>
+    <edge source="com.widget.Controllers.RootController" target="com.widget.Entities.SingleWidget">
+      <point x="24.999999999999943" y="-47.5" />
+      <point x="481.30092592592587" y="860.0" />
+      <point x="445.5595679012345" y="860.0" />
+      <point x="445.5595679012345" y="479.0" />
+      <point x="582.1259259259259" y="479.0" />
+      <point x="-76.79999999999995" y="124.0" />
+    </edge>
+    <edge source="com.widget.Services.FormService" target="com.widget.Entities.Form">
+      <point x="119.60000000000002" y="-125.0" />
+      <point x="381.15956790123454" y="560.0" />
+      <point x="363.8" y="560.0" />
+      <point x="363.8" y="489.0" />
+      <point x="371.6595679012345" y="489.0" />
+      <point x="36.0" y="124.5" />
+    </edge>
+    <edge source="com.widget.Controllers.WidgetController" target="com.widget.Entities.SingleWidget">
+      <point x="68.75" y="-58.5" />
+      <point x="814.5086419753086" y="860.0" />
+      <point x="788.1336419753086" y="860.0" />
+      <point x="788.1336419753086" y="489.0" />
+      <point x="735.725925925926" y="489.0" />
+      <point x="76.80000000000007" y="124.0" />
+    </edge>
+    <edge source="com.widget.Repositories.WidgetRepository" target="com.widget.Entities.SingleWidget">
+      <point x="0.0" y="-13.0" />
+      <point x="552.2814814814815" y="489.0" />
+      <point x="620.525925925926" y="489.0" />
+      <point x="-38.39999999999998" y="124.0" />
+    </edge>
+    <edge source="com.widget.Services.SingleWidgetResponseService" target="com.widget.Repositories.SingleWidgetResponseRepository">
+      <point x="-136.33333333333348" y="-47.5" />
+      <point x="1031.5294753086418" y="261.0" />
+      <point x="1058.7586419753084" y="261.0" />
+      <point x="0.0" y="13.0" />
+    </edge>
+    <edge source="com.widget.Services.FormService" target="com.widget.Entities.Widget">
+      <point x="-119.60000000000002" y="-125.0" />
+      <point x="141.9595679012345" y="560.0" />
+      <point x="90.55956790123457" y="560.0" />
+      <point x="90.55956790123457" y="190.0" />
+      <point x="207.05" y="190.0" />
+      <point x="-24.0" y="80.0" />
+    </edge>
+    <edge source="com.widget.Services.FormResponseService" target="com.widget.Entities.FormResponse">
+      <point x="0.0" y="-47.5" />
+      <point x="193.52604166666663" y="1396.0" />
+      <point x="214.5" y="1396.0" />
+      <point x="214.5" y="1320.0" />
+      <point x="209.55208333333331" y="1320.0" />
+      <point x="-31.625" y="69.0" />
+    </edge>
+    <edge source="com.widget.Controllers.RootController" target="com.widget.Entities.Form">
+      <point x="-25.000000000000057" y="-47.5" />
+      <point x="431.30092592592587" y="860.0" />
+      <point x="434.5595679012345" y="860.0" />
+      <point x="434.5595679012345" y="489.0" />
+      <point x="407.6595679012345" y="489.0" />
+      <point x="72.0" y="124.5" />
+    </edge>
+    <edge source="com.widget.Repositories.LocalizationRepository" target="com.widget.Entities.Localization">
+      <point x="0.0" y="-25.0" />
+      <point x="0.0" y="58.0" />
+    </edge>
+    <edge source="com.widget.Controllers.SingleWidgetResponseController" target="com.widget.Entities.SingleWidgetResponse">
+      <point x="73.5" y="-36.5" />
+      <point x="1346.3211419753086" y="406.0" />
+      <point x="1382.8628086419753" y="406.0" />
+      <point x="1382.8628086419753" y="185.0" />
+      <point x="1300.8419753086418" y="185.0" />
+      <point x="72.0" y="80.0" />
+    </edge>
+    <edge source="com.widget.Controllers.FormController" target="com.widget.Entities.Form">
+      <point x="-39.0" y="-113.5" />
+      <point x="117.0" y="860.0" />
+      <point x="101.55956790123457" y="860.0" />
+      <point x="101.55956790123457" y="479.0" />
+      <point x="263.6595679012345" y="479.0" />
+      <point x="-72.0" y="124.5" />
+    </edge>
+    <edge source="com.widget.Services.FormResponseService" target="com.widget.Repositories.FormResponseRepository">
+      <point x="-106.33333333333331" y="-47.5" />
+      <point x="87.19270833333331" y="1396.0" />
+      <point x="102.0" y="1396.0" />
+      <point x="0.0" y="13.0" />
+    </edge>
+    <edge source="com.widget.Entities.Form" target="com.widget.Entities.Widget">
+      <point x="45.0" y="-124.5" />
+      <point x="380.6595679012345" y="190.0" />
+      <point x="303.05" y="190.0" />
+      <point x="72.0" y="80.0" />
+    </edge>
+    <edge source="com.widget.Controllers.FormController" target="com.widget.Services.FormService">
+      <point x="39.0" y="-113.5" />
+      <point x="195.0" y="860.0" />
+      <point x="161.89290123456783" y="860.0" />
+      <point x="-99.66666666666669" y="125.0" />
+    </edge>
+    <edge source="com.widget.Controllers.FormController" target="com.widget.Entities.Widget">
+      <point x="-117.0" y="-113.5" />
+      <point x="39.0" y="860.0" />
+      <point x="79.55956790123457" y="860.0" />
+      <point x="79.55956790123457" y="180.0" />
+      <point x="159.05" y="180.0" />
+      <point x="-72.0" y="80.0" />
+    </edge>
+    <edge source="com.widget.Repositories.SingleWidgetResponseRepository" target="com.widget.Entities.SingleWidgetResponse">
+      <point x="0.0" y="-13.0" />
+      <point x="1058.7586419753084" y="185.0" />
+      <point x="1156.8419753086418" y="185.0" />
+      <point x="-72.0" y="80.0" />
+    </edge>
+    <edge source="com.widget.Services.WidgetService" target="com.widget.Entities.SingleWidget">
+      <point x="99.00000000000003" y="-81.0" />
+      <point x="728.1336419753086" y="560.0" />
+      <point x="671.5" y="560.0" />
+      <point x="671.5" y="489.0" />
+      <point x="697.325925925926" y="489.0" />
+      <point x="38.40000000000009" y="124.0" />
+    </edge>
+    <edge source="com.widget.Controllers.FormResponseController" target="com.widget.Services.FormResponseService">
+      <point x="-62.25" y="-36.5" />
+      <point x="212.296875" y="1541.0" />
+      <point x="193.52604166666663" y="1541.0" />
+      <point x="0.0" y="47.5" />
+    </edge>
+    <edge source="com.widget.Services.WidgetService" target="com.widget.Repositories.WidgetRepository">
+      <point x="-99.0" y="-81.0" />
+      <point x="530.1336419753086" y="560.0" />
+      <point x="552.2814814814815" y="560.0" />
+      <point x="0.0" y="13.0" />
+    </edge>
+    <edge source="com.widget.Repositories.FormRepository" target="com.widget.Entities.Form">
+      <point x="0.0" y="-13.0" />
+      <point x="247.38148148148144" y="489.0" />
+      <point x="299.6595679012345" y="489.0" />
+      <point x="-36.0" y="124.5" />
+    </edge>
+    <edge source="com.widget.Services.FormService" target="com.widget.Repositories.FormRepository">
+      <point x="-59.80000000000004" y="-125.0" />
+      <point x="201.75956790123448" y="560.0" />
+      <point x="210.88148148148144" y="560.0" />
+      <point x="-36.5" y="13.0" />
+    </edge>
+    <edge source="com.widget.Controllers.SingleWidgetResponseController" target="com.widget.Services.SingleWidgetResponseService">
+      <point x="-73.5" y="-36.5" />
+      <point x="1199.3211419753086" y="406.0" />
+      <point x="1167.8628086419753" y="406.0" />
+      <point x="0.0" y="47.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.40325497287522605" x="710.0" y="819.5" />
+  <SelectedNodes>
+    <node>com.widget.Entities.FormResponse</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

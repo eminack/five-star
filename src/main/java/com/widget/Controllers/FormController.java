@@ -56,7 +56,6 @@ public class FormController {
     @RequestMapping(value = "/form/{formId}/widget/{widgetId}/edit",method = RequestMethod.POST)
     @ResponseBody
     public Form editWidgetFromForm(@PathVariable("formId") String formId,@PathVariable("widgetId") String widgetId,@RequestBody Widget widget){
-        System.out.println("yes");
         formService.replaceWidget(formId,widgetId,widget);
         return formService.getFormById(formId);
     }
