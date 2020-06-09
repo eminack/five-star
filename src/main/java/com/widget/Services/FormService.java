@@ -6,6 +6,7 @@ import com.widget.Repositories.FormRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -51,5 +52,23 @@ public class FormService {
     public Widget findWidgetInFormById(String formId, String widgetId) {
         Form form = formRepository.findById(formId).get();
         return form.getWidgets().stream().filter(p->((p.getWidgetId()).compareTo(widgetId))==0).findFirst().get();
+    }
+
+    public void replaceWidget(String formId, String widgetId, Widget newWidget) {
+        Form form = formRepository.findById(formId).get();
+        ArrayList<Widget> widgetArrayList = form.getWidgets();
+        int index=0;
+        for(int i=0;i<widgetArrayList.size();i++){
+            if (widgetArrayList.get(i).getWidgetId().compareTo(widgetId)==0){
+                index = i;
+                break;
+            }
+        }
+        System.out.println(index);
+        newWidget.setWidgetVersion(widgetArrayList.get(index).getWidgetVersion()+1);
+        widgetArrayList.remove(widgetArrayList.get(index));
+        widgetArrayList.add(index,newWidget);
+        form.setWidgets(widgetArrayList);
+        formRepository.save(form);
     }
 }

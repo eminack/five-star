@@ -4,26 +4,39 @@
     <div th:replace="common/header::header"></div>
 </head>
 <body>
-<div class="container">
-    <nav class="navbar navbar-dark bg-primary">
-        <span class="navbar-text" style="size: A3;height: max-content;font-size: xx-large;color: black" th:text="${form.name}">
-        </span>
-    </nav>
-    <br>
-    <div class="container" style="width:800px">
-        <th:block th:each="widget : ${form.widgets}">
-            <div th:replace="'form-widgets/'+${widget.templateId}::${widget.templateId}(${widget})">
+<div id="wrapper" class="wrapper">
+    <div class="container" style="border:2px solid #cecece;padding:10px">
+        <nav class="navbar navbar-dark bg-dark">
+            <span class="navbar-text" style="size: A3;height: max-content;font-size: xx-large;color: white" th:text="#{${form.name}}">
+            </span>
+        </nav>
+        <br>
+        <div class="container" style="width:800px">
+            <th:block th:each="widget : ${form.widgets}">
+                <div th:replace="'form-widgets/'+${widget.templateId}::${widget.templateId}(${widget})">
+                </div>
+                <br>
+            </th:block>
+             <div class="wrapper" style="text-align: center">
+            <button th:text="#{view-form-button-submit}" type="button" class="btn btn-success btn-lg" style="font-size:x-large" onclick="submitForm()">Submit</button>
             </div>
-            <br>
-        </th:block>
-        <div class="wrapper" style="text-align: center">
-        <button type="button" class="btn btn-success btn-lg" style="font-size:x-large" onclick="submitForm()">Submit</button>
+        </div>
+        <br>
+        <div style="text-align: center">
+            <span th:text="#{lang-change}">Language</span>:
+            <select id="locales">
+                <option value=""></option>
+                <option value="en_US" th:text="#{lang-eng}">English</option>
+                <option value="hi" th:text="#{lang-hindi}">Hindi</option>
+            </select>
         </div>
     </div>
+
 </div>
 </body>
 <script th:inline="javascript">
     var formId = [[${form.formId}]];
+    var alertMsg = [[#{single-widget-submit-alert}]];
 </script>
 <script type="text/javascript" src="/js/view-form.js"></script>
 </html>

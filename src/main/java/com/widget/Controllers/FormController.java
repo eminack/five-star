@@ -4,9 +4,11 @@ import com.widget.Entities.Form;
 import com.widget.Entities.Widget;
 import com.widget.Services.FormService;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 
 @Controller
 @CrossOrigin
@@ -41,7 +43,7 @@ public class FormController {
 
     @RequestMapping(value = "/form/{id}/add-widget",method = RequestMethod.POST)
     @ResponseBody
-    public Form addWidgetToForm(@PathVariable("id") String id,Model model,@RequestBody Widget widget){
+    public Form addWidgetToForm(@PathVariable("id") String id,@RequestBody Widget widget){
         formService.addWidget(id,widget);
         return formService.getFormById(id);
     }
@@ -49,6 +51,13 @@ public class FormController {
     @ResponseBody
     public Form deleteWidgetFromForm(@PathVariable("formId") String formId,@PathVariable("widgetId") String widgetId){
         formService.deleteWidgetFromFormById(formId,widgetId);
+        return formService.getFormById(formId);
+    }
+    @RequestMapping(value = "/form/{formId}/widget/{widgetId}/edit",method = RequestMethod.POST)
+    @ResponseBody
+    public Form editWidgetFromForm(@PathVariable("formId") String formId,@PathVariable("widgetId") String widgetId,@RequestBody Widget widget){
+        System.out.println("yes");
+        formService.replaceWidget(formId,widgetId,widget);
         return formService.getFormById(formId);
     }
     @RequestMapping(value = "/form/{id}",method = RequestMethod.GET)

@@ -10,6 +10,7 @@ function submitForm() {
     for (const [key1,value] of Object.entries(globalResponse)){
         reponseList.push(value);
     }
+
     var url="http://localhost:8080/FormResponse";
     fetch(url, {
         method: 'POST',
@@ -19,5 +20,16 @@ function submitForm() {
             'formId': formId,
             'data': reponseList
         })
-    }).then(res=>res.toString()).then(()=>alert("Response has been Recorded Successfully"));
+    }).then(res=>res.toString()).then(()=>alert(alertMsg)).
+        then(()=>window.location.href="http://localhost:8080/");
 }
+$("#locales").change(function () {
+    var selectedOption = $('#locales').val();
+    console.log(selectedOption);
+    var link = window.location.href;
+    link = link.split('?')[0];
+    link = link+'?lang='+selectedOption;
+    if (selectedOption != ''){
+        window.location.replace(link);
+    }
+});

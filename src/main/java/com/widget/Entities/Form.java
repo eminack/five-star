@@ -29,6 +29,10 @@ public class Form {
     private String userCreated;
     private ArrayList<Widget> widgets;
 
+    public void setWidgets(ArrayList<Widget> widgets) {
+        this.widgets = widgets;
+    }
+
     public Form(String name) {
         this.formId = UUID.randomUUID().toString().replaceAll("-","");
         this.name = name;

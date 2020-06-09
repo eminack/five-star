@@ -4,12 +4,25 @@
     <div th:replace="common/header::header"></div>
 </head>
 <body>
-<div class="container">
-    <div class="container" style="width:800px">
-            <br>
-            <div th:replace="'single-widgets/'+${widget.templateId}::${widget.templateId}(${widget})">
-            </div>
+<div id="wrapper" class="wrapper">
+    <div class="container">
+        <div class="container" style="width:800px">
+                <br>
+                <div th:replace="'single-widgets/'+${widget.templateId}::${widget.templateId}(${widget})">
+                </div>
+        </div>
+        <br>
+        <div style="text-align: center">
+            <span th:text="#{lang-change}">Language</span>:
+            <select id="locales">
+                <option value=""></option>
+                <option value="en_US" th:text="#{lang-eng}">English</option>
+                <option value="hi" th:text="#{lang-hindi}">Hindi</option>
+            </select>
+        </div>
     </div>
+
 </div>
 </body>
+<script type="text/javascript" src="/js/view-single-widget.js"></script>
 </html>

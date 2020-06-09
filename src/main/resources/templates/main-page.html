@@ -8,7 +8,7 @@
 <div id="wrapper" class="wrapper">
     <div id="container" class="container-fluid">
         <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-text" style="size: A5;height: max-content;font-size: xx-large;color: White">
+        <span class="navbar-text" style="size: A5;height: max-content;font-size: xx-large;color: White" th:text="#{main-page-navbar-title}">
            Self Service Portal
         </span>
         </nav>
@@ -16,17 +16,17 @@
             <nav id="main-menu" class="main-menu" role="navigation">
                 <ul>
                     <li>
-                        <button type="button" class="btn btn-warning btn-lg" style="font-size: medium;width: 180px" data-toggle = "modal" data-target="#ModalCenter">Create New Form</button>
+                        <button type="button" th:text = "#{main-page-button-new-form}"class="btn btn-warning btn-lg" style="font-size: medium;width: 180px" data-toggle = "modal" data-target="#ModalCenter">Create New Form</button>
                     </li>
                     <li>
-                            <button class="btn btn-warning btn-lg dropdown-toggle" style="font-size: medium;width: 180px" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn btn-warning btn-lg dropdown-toggle" th:text="#{main-page-button-new-widget}" style="font-size: medium;width: 180px" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Create New Widget
                             </button>
                             <div class="dropdown-menu w-60"  aria-labelledby="dropdownMenu2">
-                                <button class="dropdown-item btn-light btn-lg" data-toggle="modal" data-target="#FiveStarModal" style="font-size: medium" type="button">Five-Star</button>
-                                <button class="dropdown-item btn-light btn-lg" style="font-size: medium" type="button">Short-Answer</button>
-                                <button class="dropdown-item btn-light btn-lg" style="font-size: medium" type="button">HMD-widget</button>
-                                <button class="dropdown-item btn-light btn-lg" style="font-size: medium" type="button">Scale Widget</button>
+                                <button class="dropdown-item btn-light btn-lg" th:text="#{main-page-button-new-fivestar-widget}" data-toggle="modal" data-target="#fivestarModal" style="font-size: medium" type="button">Five-Star</button>
+                                <button class="dropdown-item btn-light btn-lg" th:text="#{main-page-button-new-shortanswer-widget}" style="font-size: medium" type="button">Short-Answer</button>
+                                <button class="dropdown-item btn-light btn-lg" th:text ="#{main-page-button-new-HMD-widget}"style="font-size: medium" type="button">HMD-widget</button>
+                                <button class="dropdown-item btn-light btn-lg" th:text="#{main-page-button-new-scale-widget}" style="font-size: medium" type="button">Scale Widget</button>
                             </div>
                     </li>
                 </ul>
@@ -34,36 +34,35 @@
         </div><!-- /side-a -->
         <div id="main" class="main  two-column">
             <div class="panel panel-info">
-                <div class="panel-heading" style="font-family: Arial;font-size: large">
-                    <h3 style="font-size: large" >Forms</h3>
+                <div class="panel-heading"  style="font-family: Arial;font-size: large">
+                    <h3 th:text="#{main-page-form-table-heading}" style="font-size: large" >Forms</h3>
                 </div>
                 <div class="panel-body">
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th style="font-size: large" width="30%">Name</th>
-                            <th style="font-size: large" width="30%">Version</th>
+                            <th th:text="#{main-page-form-table-column-1-heading}" style="font-size: large" width="30%">Name</th>
+                            <th th:text="#{main-page-form-table-column-2-heading}" style="font-size: large" width="30%">Version</th>
                             <th width="40%"></th>
                         </tr>
                         </thead>
                         <tbody>
                         <th:block th:each="form:${forms}">
                             <tr>
-                                <td style="font-size:medium"  th:text="${form.name}"></td>
+                                <td style="font-size:medium"  th:text="#{${form.name}}"></td>
                                 <td style="font-size:medium" th:text="${form.version}"></td>
                                 <td>
-                                    <a type="button" class="btn btn-info" style="font-size: medium"
+                                    <a type="button" class="btn btn-info" style="font-size: medium" th:text="#{main-page-formURL-copy}"
                                        th:data-thing="${form.formId}" onclick="copyFormUrl(this.getAttribute('data-thing'));">
                                        Copy URL
                                     </a>
-                                    <a type="button" class="btn btn-success" style="font-size: medium"
+                                    <a type="button" class="btn btn-success" style="font-size: medium" th:text="#{main-page-edit-button}"
                                        th:href="@{'/form/' + ${form.formId} + '/edit'}">Edit</a>
-                                    <a type="button" class="btn btn-danger" style="font-size: medium"
+                                    <a type="button" class="btn btn-danger" style="font-size: medium" th:text="#{main-page-delete-button}"
                                        th:href="@{'/form/' + ${form.formId} + '/delete'}">Delete</a>
-                                    <a type="button" class="btn btn-dark" style="font-size: medium"
+                                    <a type="button" class="btn btn-dark" style="font-size: medium" th:text="#{main-page-view-button}"
                                        th:href="@{'/form/' + ${form.formId}}">View</a>
                                 </td>
-
                             </tr>
                         </th:block>
                         </tbody>
@@ -72,34 +71,32 @@
             </div>
             <div class="panel panel-danger">
                 <div class="panel-heading" style="font-family: Arial;font-size: large">
-                    <h3 style="font-size: large" >Widgets</h3>
+                    <h3 th:text="#{main-page-widget-table-heading}"style="font-size: large" >Widgets</h3>
                 </div>
                 <div class="panel-body">
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th style="font-size: large" width="30%">Name</th>
-                            <th style="font-size: large" width="30%">Type</th>
+                            <th th:text="#{main-page-widget-table-column-1-heading}" style="font-size: large" width="30%">Name</th>
+                            <th th:text="#{main-page-widget-table-column-2-heading}" style="font-size: large" width="30%">Type</th>
                             <th width="40%"></th>
                         </tr>
                         </thead>
                         <tbody>
                         <th:block th:each="widget:${widgets}">
                             <tr>
-                                <td style="font-size:medium"  th:text="${widget.widgetName}"></td>
+                                <td style="font-size:medium"  th:text="#{${widget.widgetName}}"></td>
                                 <td style="font-size:medium" th:text="${widget.widgetType}"></td>
                                 <td>
-                                    <a type="button" class="btn btn-info" style="font-size: medium"
+                                    <a type="button" class="btn btn-info" style="font-size: medium" th:text="#{main-page-formURL-copy}"
                                        th:data-thing="${widget.widgetId}" onclick="copyWidgetUrl(this.getAttribute('data-thing'));">
                                     Copy URL
                                     </a>
                                     <a type="button" class="btn btn-danger" style="font-size: medium" th:data-thing="${widget.widgetId}"
-                                       onclick="deleteWidget(this.getAttribute('data-thing'));">Delete</a>
-                                    <a type="button" class="btn btn-dark" style="font-size: medium"
+                                       th:text="#{main-page-delete-button}" onclick="deleteWidget(this.getAttribute('data-thing'));">Delete</a>
+                                    <a type="button" class="btn btn-dark" style="font-size: medium" th:text="#{main-page-view-button}"
                                        th:href="@{'/widget/' + ${widget.widgetId}}">View</a>
-
                                 </td>
-
                             </tr>
                         </th:block>
                         </tbody>
@@ -108,7 +105,14 @@
             </div>
 
         </div><!-- /main two-column -->
-    </div><!-- /container -->
+        <br>
+        <span th:text="#{lang-change}">Language</span>:
+        <select id="locales">
+            <option value=""></option>
+            <option value="en_US" th:text="#{lang-eng}">English</option>
+            <option value="hi" th:text="#{lang-hindi}">Hindi</option>
+        </select>
+    </div> <!-- /container -->
 
     <div th:insert="common/create-form-modal.html"></div>
     <div th:insert="common/fivestar-modal.html"></div>

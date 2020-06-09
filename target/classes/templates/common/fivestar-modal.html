@@ -1,9 +1,9 @@
-
-<div class="modal fade" id="FiveStarModal" tabindex="-1" role="dialog" aria-labelledby="FiveStarModal" aria-hidden="true">
+<div class="modal" id="fivestarModal" tabindex="-1" role="dialog" aria-labelledby="fivestarModal"
+     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="ModalTitle" >FiveStar Widget</h4>
+                <h4 th:text="#{fivestar-modal-title}" class="modal-title" id="ModalTitle" >FiveStar Widget</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,24 +12,24 @@
             <div class="modal-body col-md-12">
                 <form name="myForm" onsubmit=" return CreateFiveStarWidget()" >
                     <div class="form-group" >
-                        <label for="inputName" style="font-size: small">Widget Name</label>
-                        <input type="text" class="form-control" required pattern="\S(.*\S)?" title="Enter Name" id="inputName" placeholder="Enter Name">
+                        <label th:text="#{fivestar-modal-widget-name}" for="inputName" style="font-size: small">Widget Name</label>
+                        <input type="text" class="form-control" required pattern="\S(.*\S)?" title="Enter String ID for name" id="inputName" placeholder="Enter Name">
                     </div>
                     <div class="form-group">
-                        <label for="inputTitle" style="font-size: small">Question for 5 star widget</label>
+                        <label th:text="#{fivestar-modal-widget-question}" for="inputTitle" style="font-size: small">Question for 5 star widget</label>
                         <input type="text" class="form-control" required pattern="\S(.*\S)?" title="Enter Title" id="inputTitle" placeholder="..">
                     </div>
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="smiley1" style="font-size: small">Smiley 1 tooltip</label>
+                                <label th:text="#{fivestar-modal-Smiley-1-hint}" for="smiley1" style="font-size: small">Smiley 1 tooltip</label>
                                 <input type="text" class="form-control" required pattern="\S(.*\S)?" id="smiley1" placeholder="..">
                             </div>
                         </div>
                         <div class="col-md 6">
                             <div class="form-group">
-                                <label for="smiley2" style="font-size: small">Smiley 2 tooltip</label>
+                                <label th:text="#{fivestar-modal-Smiley-2-hint}" for="smiley2" style="font-size: small">Smiley 2 tooltip</label>
                                 <input type="text" class="form-control" required pattern="\S(.*\S)?" id="smiley2" placeholder="..">
                             </div>
                         </div>
@@ -38,13 +38,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="smiley3" style="font-size: small">Smiley 3 tooltip</label>
+                                <label th:text="#{fivestar-modal-Smiley-3-hint}" for="smiley3" style="font-size: small">Smiley 3 tooltip</label>
                                 <input type="text" class="form-control" required pattern="\S(.*\S)?" id="smiley3" placeholder="..">
                             </div>
                         </div>
                         <div class="col-md 6">
                             <div class="form-group">
-                                <label for="smiley4" style="font-size: small">Smiley 4 tooltip</label>
+                                <label th:text="#{fivestar-modal-Smiley-4-hint}" for="smiley4" style="font-size: small">Smiley 4 tooltip</label>
                                 <input type="text" class="form-control" required pattern="\S(.*\S)?" id="smiley4" placeholder="..">
                             </div>
                         </div>
@@ -53,14 +53,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="smiley5" style="font-size: small">Smiley 5 tooltip</label>
+                                <label th:text="#{fivestar-modal-Smiley-5-hint}" for="smiley5" style="font-size: small">Smiley 5 tooltip</label>
                                 <input type="text" class="form-control" required pattern="\S(.*\S)?" id="smiley5" placeholder="..">
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal" style="font-size: small">Cancel</button>
-                        <input type="submit" class="btn btn-success" style="font-size: small"  value="Submit">
+                        <button th:text="#{fivestar-modal-button-cancel}" type="button" class="btn btn-danger" data-dismiss="modal" style="font-size: small">Cancel</button>
+                        <input th:value = "#{fivestar-modal-button-submit}" type="submit" class="btn btn-success" style="font-size: small">
                     </div>
                 </form>
             </div>
