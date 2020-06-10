@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <div th:replace="common/header::header"></div>
+    <div th:replace="common/header.html"></div>
+    <link th:href="@{/css/view-Single-widget.css}" media="all" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="wrapper" class="wrapper">
-    <div class="container">
-        <div class="container" style="width:800px">
+    <div id="wrapper" class="wrapper">
+        <div class="container">
+            <div id="container-1" class="container">
                 <br>
-                <div th:replace="'single-widgets/'+${widget.templateId}::${widget.templateId}(${widget})">
-                </div>
-        </div>
-        <br>
-        <div style="text-align: center">
-            <span th:text="#{lang-change}">Language</span>:
-            <select id="locales">
-                <option value=""></option>
-                <option value="en_US" th:text="#{lang-eng}">English</option>
-                <option value="hi" th:text="#{lang-hindi}">Hindi</option>
-            </select>
+                <div th:replace="'single-widget-templates/'+${widget.templateId}::${widget.templateId}(${widget})"></div>
+            </div>
+            <br>
+            <div style="text-align: center">
+                <div th:replace="common/language-change.html"></div>
+            </div>
         </div>
     </div>
-
-</div>
 </body>
-<script type="text/javascript" src="/js/view-single-widget.js"></script>
+<script type="text/javascript" src="/js/common/language-change.js"></script>
 </html>

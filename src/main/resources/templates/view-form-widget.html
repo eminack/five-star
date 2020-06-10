@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <div th:replace="common/header::header"></div>
+    <div th:replace="common/header.html"></div>
+    <link th:href="@{/css/view-Form-widget.css}" media="all" rel="stylesheet" type="text/css" />
 </head>
-<body style="background-color: #dddddd">
-    <div class="container" style="width:900px">
-            <br>
-            <div th:replace="'form-widgets/'+${widget.templateId}::${widget.templateId}(${widget})">
-            </div>
+<body id="body" >
+    <div id="container-3" class="container">
+        <br>
+        <div th:replace="'form-widget-templates/'+${widget.templateId}::${widget.templateId}(${widget})"></div>
     </div>
 </body>
 </html>

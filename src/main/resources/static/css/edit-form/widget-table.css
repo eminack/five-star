@@ -1,0 +1,9 @@
+#widget-table-heading{
+    font-size: large;text-align: center;
+}
+#widget-table-head *{
+    font-size: large;
+}
+#widget-table-body *{
+    font-size: medium;
+}

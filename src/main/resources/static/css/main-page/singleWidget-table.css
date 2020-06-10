@@ -1,0 +1,9 @@
+#single-widget-table-heading{
+    font-family:Arial;font-size: large;
+}
+.singleWidget-table-head *{
+    font-size: large;
+}
+.singleWidget-table-body *{
+    font-size: medium;
+}

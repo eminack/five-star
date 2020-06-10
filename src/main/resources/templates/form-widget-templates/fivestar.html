@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <div th:insert="header.html"></div>
+    <div th:replace="common/header.html"></div>
 </head>
 <body>
 <div th:fragment="fivestar(widget)">
@@ -12,17 +12,13 @@
                 <input th:id=${widget.widgetId} th:name="${widget.widgetId}" value="3" class="rating-loading"
                        th:attr="data-sm1=#{${widget.data.smiley1}},data-sm2=#{${widget.data.smiley2}},
                        data-sm3=#{${widget.data.smiley3}},data-sm4=#{${widget.data.smiley4}},
-                        data-sm5=#{${widget.data.smiley5}}"
-                       size="md">
-                <script th:inline="javascript">
-                    var id = [[${widget.widgetId}]];
-                    console.log("id = " + id);
-                    var smileylist = { 1:$('#'+id).data("sm1"),2:$('#'+id).data("sm2"),
-                                       3:$('#'+id).data("sm3"),4:$('#'+id).data("sm4"),
-                                       5:$('#'+id).data("sm5")
-                                     };
-                    console.log(smileylist);
+                        data-sm5=#{${widget.data.smiley5}}"size="md">
 
+                    <script th:inline="javascript">
+                    var id = [[${widget.widgetId}]];
+                    var smileylist = { 1:$('#'+id).data("sm1"),2:$('#'+id).data("sm2"),
+                                       3:$('#'+id).data("sm3"),4:$('#'+id).data("sm4"),5:$('#'+id).data("sm5")
+                                     };
                     $('#' + id).rating({
                         step: 1,
                         starCaptions: smileylist,

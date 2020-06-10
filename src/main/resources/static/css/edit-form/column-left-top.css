@@ -1,0 +1,9 @@
+#dropdownMenu2{
+    font-size: large;float: left;
+}
+#dropdown-menu *{
+    font-size: medium;
+}
+#submit-button{
+    font-size: large;float: right;
+}

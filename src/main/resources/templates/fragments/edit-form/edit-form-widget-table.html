@@ -1,0 +1,36 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 id="widget-table-heading" th:text="#{edit-form-widget-table-heading}" >List of Widgets</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead id="widget-table-head">
+            <tr>
+                <th  th:text="#{edit-form-widget-table-column-1-heading}" width="30%">Name</th>
+                <th  th:text="#{edit-form-widget-table-column-2-heading}" width="35%">Type</th>
+                <th width="35%"></th>
+            </tr>
+            </thead>
+            <tbody id="widget-table-body">
+                <th:block th:each="widget:${form.widgets}">
+                    <tr>
+                        <td  th:text="#{${widget.widgetName}}"></td>
+                        <td  th:text="${widget.widgetType}"></td>
+                        <td>
+                            <a type="button" class="btn btn-success" th:text="#{main-page-edit-button}"
+                               th:data-widgetId="${widget.widgetId}" th:data-templateId="${widget.templateId}"
+                               onclick="displayModalForThisId(this.getAttribute('data-widgetId'),this.getAttribute('data-templateId'));">Edit
+                            </a>
+                            <a type="button" class="btn btn-danger"  th:data-id="${widget.widgetId}"
+                               th:text="#{main-page-delete-button}" onclick="deleteWidget(this.getAttribute('data-id'));">Delete
+                            </a>
+                            <a type="button" class="btn btn-primary" th:text="#{main-page-view-button}"
+                               th:href="@{'/form/' + ${form.formId} + '/widget/' + ${widget.widgetId}}">View
+                            </a>
+                        </td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>

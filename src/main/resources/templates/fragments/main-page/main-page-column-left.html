@@ -1,0 +1,33 @@
+<div id="side-a" class="side-a">
+    <nav id="main-menu" class="main-menu" role="navigation">
+        <ul>
+            <li>
+                <button id="left-column-button-create-new-form" type="button" th:text = "#{main-page-button-new-form}"
+                        class="btn btn-warning btn-lg" data-toggle = "modal" data-target="#create-form-modal">Create New Form
+                </button>
+            </li>
+            <li>
+                <button class="btn btn-warning btn-lg dropdown-toggle" th:text="#{main-page-button-new-widget}"
+                        type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Create New Widget
+                </button>
+                <div class="dropdown-menu w-60"  aria-labelledby="dropdownMenu2">
+                    <button id="left-column-button-fivestar" class="dropdown-item btn-light btn-lg"
+                            th:text="#{main-page-button-new-fivestar-widget}" data-toggle="modal"
+                            data-target="#fivestarModal"  type="button">Five-Star
+                    </button>
+                    <button id="left-column-button-shortanswer" class="dropdown-item btn-light btn-lg"
+                            th:text="#{main-page-button-new-shortanswer-widget}"
+                            type="button">Short-Answer
+                    </button>
+                    <button id="left-column-button-HMD" class="dropdown-item btn-light btn-lg"
+                            th:text ="#{main-page-button-new-HMD-widget}" type="button">HMD-widget
+                    </button>
+                    <button id="left-column-button-scale" class="dropdown-item btn-light btn-lg"
+                            th:text="#{main-page-button-new-scale-widget}" type="button">Scale Widget
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </nav><!-- /main-menu -->
+</div><!-- /side-a -->

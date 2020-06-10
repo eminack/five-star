@@ -101,10 +101,6 @@ p:last-child {
     /*border: 1px solid #dddddd;*/
      border: #002752;
      background: #dddddd;
-    /*background-color: #ffffff;*/
-    /*-moz-box-sizing: border-box;*/
-    /*-webkit-box-sizing: border-box;*/
-    /*box-sizing: border-box;*/
     margin-right: 20px;
     padding: 20px;
 }
@@ -153,3 +149,5 @@ p:last-child {
         margin-bottom: 20px;
     }
 }
+
+

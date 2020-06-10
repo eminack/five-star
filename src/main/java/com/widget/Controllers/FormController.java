@@ -62,6 +62,13 @@ public class FormController {
     @RequestMapping(value = "/form/{id}",method = RequestMethod.GET)
     public String viewForm(@PathVariable("id") String id,Model model){
         model.addAttribute("form",formService.getFormById(id));
+        model.addAttribute("preview","no");
+        return "view-form";
+    }
+    @RequestMapping(value = "/form/{id}/preview",method = RequestMethod.GET)
+    public String previewForm(@PathVariable("id") String id,Model model){
+        model.addAttribute("form",formService.getFormById(id));
+        model.addAttribute("preview","yes");
         return "view-form";
     }
 

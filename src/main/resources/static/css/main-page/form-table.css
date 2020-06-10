@@ -1,0 +1,9 @@
+.form-table-body *{
+    font-size: medium;
+}
+#form-table-panel-heading{
+    font-family:Arial;font-size: large;
+}
+.form-table-head *{
+    font-size: large;
+}

@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="dropdown col col-md-9">
+        <button class="btn btn-warning btn-lg dropdown-toggle"  type="button" id="dropdownMenu2"
+                th:text="#{edit-form-button-add-widget}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Add Widget
+        </button>
+        <div class="dropdown-menu w-40"  id="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item btn-light btn-lg" data-toggle="modal" data-target="#fivestarModal"
+                    th:text="#{main-page-button-new-fivestar-widget}" type="button">Five-Star
+            </button>
+            <button th:text="#{main-page-button-new-shortanswer-widget}" class="dropdown-item btn-light btn-lg"
+                    type="button">Short-Answer
+            </button>
+            <button th:text ="#{main-page-button-new-HMD-widget}" class="dropdown-item btn-light btn-lg"
+                    type="button">HMD-widget
+            </button>
+            <button th:text="#{main-page-button-new-scale-widget}" class="dropdown-item btn-light btn-lg"
+                    type="button">Scale Widget
+            </button>
+        </div>
+    </div>
+    <button th:text="#{edit-form-button-preview-form}" class="btn btn-dark btn-lg" id="submit-button"
+             type="button" onclick="viewForm()">
+        <i class="far fa-eye"></i>
+        Preview Form
+    </button>
+</div>

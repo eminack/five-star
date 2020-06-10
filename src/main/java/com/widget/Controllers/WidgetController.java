@@ -24,12 +24,11 @@ public class WidgetController {
     public String viewWidget(@PathVariable("id") String id,Model model){
         model.addAttribute("widget",widgetService.getWidgetById(id));
         return "view-single-widget";
-
     }
 
     @RequestMapping(value = "/widget/{id}/delete",method = RequestMethod.POST)
     @ResponseBody
-    public String deleteWidget(@PathVariable("id") String id,Model model){
+    public String deleteWidget(@PathVariable("id") String id){
         widgetService.deleteWidgetById(id);
         return "Successful";
     }

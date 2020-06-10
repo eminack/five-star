@@ -1,27 +1,29 @@
-<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
+<div class="modal" id="create-form-modal" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
      aria-hidden="true" xmlns:th="http://www.w3.org/1999/xhtml">
+
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
+
             <div class="modal-header">
                 <h3 th:text="#{create-formmodal-heading}" class="modal-title" id="exampleModalLongTitle">Create Form</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+
+            <div class="create-form-modal-body">
                 <form name="myForm" onsubmit="return CreateForm()">
                     <div class="form-group">
-                        <label th:text="#{create-formmodal-form-name}" for="message-text" style="font-size: small">Form Name</label>
+                        <label th:text="#{create-formmodal-form-name}" for="message-text" >Form Name</label>
                         <input type="text" class="form-control"  required pattern="\S(.*\S)?" title="Form Name"
                                placeholder="..form heading.." id="message-text">
                     </div>
                     <div class="modal-footer">
-                        <button th:text="#{create-formmodal-button-cancel}" type="button" class="btn btn-danger" data-dismiss="modal" style="font-size: small">Cancel</button>
-                        <input th:value="#{create-formmodal-button-submit}" type="submit" class="btn btn-success" style="font-size: small">
+                        <button th:text="#{create-formmodal-button-cancel}" type="button" class="btn btn-danger" data-dismiss="modal" >Cancel</button>
+                        <input th:value="#{create-formmodal-button-submit}" type="submit" class="btn btn-success">
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>

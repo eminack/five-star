@@ -1,0 +1,18 @@
+#container-top{
+    border:2px solid #cecece;padding:10px;
+}
+#form-name{
+    size: A3;height: max-content;font-size: xx-large;color: white;
+}
+#container-2{
+    width: 800px;
+}
+#wrapper2{
+    text-align: center;
+}
+#submit-form{
+    font-size:x-large;
+}
+#lang{
+    text-align: center;
+}

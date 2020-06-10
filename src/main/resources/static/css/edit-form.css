@@ -153,3 +153,18 @@ p:last-child {
         margin-bottom: 20px;
     }
 }
+#live-preview-heading{
+    text-align: center;background: #aaaaaa;font-palette: light;
+}
+#underline{
+    border-top: 3px double #8c8b8b;
+}
+#wrapper1{
+    text-align: center;
+}
+#button-copy-url{
+    font-size:medium;
+}
+#live-preview-container *{
+    background: #dddddd;
+}

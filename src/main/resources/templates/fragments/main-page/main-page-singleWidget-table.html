@@ -1,0 +1,34 @@
+<div class="panel panel-danger" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="panel-heading">
+        <h3 id="single-widget-table-heading" th:text="#{main-page-widget-table-heading}" >Widgets</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead class="singleWidget-table-head">
+            <tr>
+                <th th:text="#{main-page-widget-table-column-1-heading}"  width="30%">Name</th>
+                <th th:text="#{main-page-widget-table-column-2-heading}"  width="30%">Type</th>
+                <th width="40%"></th>
+            </tr>
+            </thead>
+            <tbody class="singleWidget-table-body">
+                <th:block th:each="widget:${widgets}">
+                    <tr>
+                        <td   th:text="#{${widget.widgetName}}"></td>
+                        <td  th:text="${widget.widgetType}"></td>
+                        <td>
+                            <a type="button" class="btn btn-info" th:text="#{main-page-formURL-copy}"
+                                th:data-thing="${widget.widgetId}" onclick="copyWidgetUrl(this.getAttribute('data-thing'));">
+                                Copy URL
+                            </a>
+                            <a type="button" class="btn btn-danger"  th:data-thing="${widget.widgetId}"
+                                th:text="#{main-page-delete-button}" onclick="deleteWidget(this.getAttribute('data-thing'));">Delete</a>
+                            <a type="button" class="btn btn-dark"  th:text="#{main-page-view-button}"
+                                th:href="@{'/widget/' + ${widget.widgetId}}">View</a>
+                        </td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
