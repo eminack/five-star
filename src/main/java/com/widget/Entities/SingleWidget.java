@@ -120,4 +120,12 @@ public class SingleWidget {
     public void setData(HashMap<String, String> data) {
         this.data = data;
     }
+
+    public void updateDetails(SingleWidget oldWidget) {
+        this.userCreated = oldWidget.getUserCreated();
+        this.lastUpdateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
+        this.createTime = oldWidget.getCreateTime();
+        this.lastServeTime = oldWidget.getLastServeTime();
+        this.widgetVersion = oldWidget.getWidgetVersion()+1;
+    }
 }

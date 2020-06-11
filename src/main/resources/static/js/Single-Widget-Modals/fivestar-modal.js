@@ -9,6 +9,7 @@ function hideFiveStarModal() {
 
 }
 function CreateFiveStarWidget() {
+    let obj;
     let widgetName = $('#inputName').val(),title = $('#inputTitle').val();
     let smiley1 = $('#smiley1').val(),smiley2 = $('#smiley2').val(),smiley3 = $('#smiley3').val();
     let smiley4 = $('#smiley4').val(),smiley5 = $('#smiley5').val();

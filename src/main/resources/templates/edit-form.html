@@ -3,13 +3,8 @@
 <head>
     <div th:replace="common/header.html"></div>
     <link th:href="@{/css/edit-form.css}" media="all" rel="stylesheet" type="text/css" />
-    <link th:href="@{/css/edit-form/navbar.css}" media="all" rel="stylesheet" type="text/css" />
-    <link th:href="@{/css/edit-form/widget-table.css}" media="all" rel="stylesheet" type="text/css" />
-    <link th:href="@{/css/edit-form/column-left-top.css}" media="all" rel="stylesheet" type="text/css" />
-    <link th:href="@{/css/Form-widget-Modals/fivestar-modal.css}" media="all" rel="stylesheet" type="text/css" />
-    <link th:href="@{/css/Form-widget-Modals/fivestar-edit-modal.css}" media="all" rel="stylesheet" type="text/css" />
-    <script th:src="@{/js/fragments/edit-form/navbar.js}" type="text/javascript"></script>
 </head>
+
 <body>
     <div id="wrapper" class="wrapper">
         <div class="container-fluid">
@@ -43,12 +38,11 @@
         <div th:insert="Form-widget-Modals/fivestar-modal.html"></div>
     </div>
 </body>
+
 <script th:inline="javascript" >
+    //these variable are needed in below mentioned js files.
     let formid = [[${form.formId}]];
+    var WidgetIdToBeEdited;
 </script>
 <script th:src="@{/js/edit-form.js}" type="text/javascript"></script>
-<script th:src="@{/js/common/language-change.js}" type="text/javascript"></script>
-<script th:src="@{/js/fragments/edit-form/widget-table.js}" type="text/javascript"></script>
-<script th:src="@{/js/fragments/edit-form/column-left-top.js}" type="text/javascript"></script>
-<script th:src="@{/js/Form-widget-Modals/fivestar-modal.js}" type="text/javascript"></script>
 </html>

@@ -38,4 +38,10 @@ public class WidgetService {
     public SingleWidget getWidgetById(String id) {
         return widgetRepository.findById(id).get();
     }
+
+    public SingleWidget updateWidget(String id, SingleWidget newWidget) {
+        SingleWidget oldWidget = widgetRepository.findById(id).get();
+        newWidget.updateDetails(oldWidget);
+        return newWidget;
+    }
 }

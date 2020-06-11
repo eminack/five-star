@@ -14,3 +14,9 @@ function copyWidgetUrl(widgetid) {
     document.execCommand("copy");
     inp.remove();
 }
+function displayModalForId(widgetId,templateId) {
+    console.log(widgetId,templateId);
+    SingleWidgetIdToBeEdited = widgetId;
+    console.log(SingleWidgetIdToBeEdited);
+    $('#'+templateId+'EditModal').modal('show');
+}

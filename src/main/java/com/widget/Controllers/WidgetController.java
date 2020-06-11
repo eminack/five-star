@@ -32,4 +32,11 @@ public class WidgetController {
         widgetService.deleteWidgetById(id);
         return "Successful";
     }
+    @RequestMapping(value = "/widget/{id}/edit",method = RequestMethod.POST)
+    @ResponseBody
+    public SingleWidget EditWidget(@PathVariable("id") String id,@RequestBody SingleWidget widget){
+         SingleWidget updatedWidget = widgetService.updateWidget(id,widget);
+         widgetService.saveWidget(updatedWidget);
+         return updatedWidget;
+    }
 }

@@ -5,46 +5,20 @@
 </head>
 <body>
 <div th:fragment="fivestar(widget)">
+    <link th:href="@{/css/single-widget-templates/fivestar.css}" media="all" rel="stylesheet" type="text/css" />
     <div class="card border-dark text-center text">
         <div class="card-body bg-light">
             <div class = "rating-box">
-                <h3 th:text="#{${widget.data.title}}" style="font-weight: bold">Example heading</h3>
+                <h3 id="heading" th:text="#{${widget.data.title}}">Example heading</h3>
                 <input th:id=${widget.widgetId} th:name="${widget.widgetId}" th:attr="data-sm1=#{${widget.data.smiley1}},
                     data-sm2=#{${widget.data.smiley2}},data-sm3=#{${widget.data.smiley3}},data-sm4=#{${widget.data.smiley4}},
                     data-sm5=#{${widget.data.smiley5}}" value="3" class="rating-loading" size="md">
 
                 <script th:inline="javascript">
                     var id = [[${widget.widgetId}]];
-
-                    var smileylist = {1:$('#'+id).data("sm1"),2:$('#'+id).data("sm2"),
-                            3:$('#'+id).data("sm3"),4:$('#'+id).data("sm4"),5:$('#'+id).data("sm5")};
-
                     var alertMsg = [[#{single-widget-submit-alert}]];
-                    $('#'+id).rating({
-                        step: 1,
-                        starCaptions: smileylist,
-                        starCaptionClasses: {1: 'text-danger', 2: 'text-warning', 3: 'text-info', 4: 'text-primary', 5: 'text-success'}
-                    });
-                    $('#'+id).on('rating:change',function(event, value, caption) {
-                        console.log(value);
-                        console.log(caption);
-                        var url = "http://localhost:8080/SingleWidgetResponse";
-                        fetch(url, {
-                            method: 'POST',
-                            headers: {'content-type': 'application/json'},
-                            body: JSON.stringify({
-                                'userId': 'xyz',
-                                'widgetId': id,
-                                'widgetType': "Five Star",
-                                'data': {
-                                    'rating-value': value
-                                }
-                            })
-                        }).then(res => res.toString()).then(()=>alert(alertMsg));
-                        $('#'+id).rating('refresh', {disabled: true, showClear: false, showCaption: true});
-                    });
-
                 </script>
+                <script th:src="@{/js/single-widget-templates/fivestar.js}" type="text/javascript"></script>
             </div>
         </div>
     </div>

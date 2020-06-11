@@ -1,3 +1,4 @@
+<link th:href="@{/css/main-page/column-left.css}" media="all" rel="stylesheet" type="text/css" />
 <div id="side-a" class="side-a">
     <nav id="main-menu" class="main-menu" role="navigation">
         <ul>
@@ -17,8 +18,8 @@
                             data-target="#fivestarModal"  type="button">Five-Star
                     </button>
                     <button id="left-column-button-shortanswer" class="dropdown-item btn-light btn-lg"
-                            th:text="#{main-page-button-new-shortanswer-widget}"
-                            type="button">Short-Answer
+                            th:text="#{main-page-button-new-shortanswer-widget}" data-toggle="modal"
+                            data-target="#shortAnsModal" type="button">Short-Answer
                     </button>
                     <button id="left-column-button-HMD" class="dropdown-item btn-light btn-lg"
                             th:text ="#{main-page-button-new-HMD-widget}" type="button">HMD-widget

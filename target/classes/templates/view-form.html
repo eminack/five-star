@@ -12,10 +12,12 @@
         </nav>
         <br>
         <div id="container-2" class="container" >
+
             <th:block th:each="widget : ${form.widgets}">
                 <div th:replace="'form-widget-templates/'+${widget.templateId}::${widget.templateId}(${widget})"></div>
                 <br>
             </th:block>
+
             <span th:if="${preview eq 'no'}">
                 <div id="wrapper2" class="wrapper" >
                     <button id="submit-form" th:text="#{view-form-button-submit}" type="button" class="btn btn-success btn-lg"
