@@ -36,11 +36,13 @@
         <div th:replace="common/language-change.html"></div>
         <div th:insert="Form-widget-Modals/fivestar-edit-modal.html"></div>
         <div th:insert="Form-widget-Modals/fivestar-modal.html"></div>
+        <div th:insert="Form-widget-Modals/shortAns-modal.html"></div>
+        <div th:insert="Form-widget-Modals/shortAns-edit-modal.html"></div>
     </div>
 </body>
 
 <script th:inline="javascript" >
-    //these variable are needed in below mentioned js files.
+    //these variable are needed in various Js Files
     let formid = [[${form.formId}]];
     var WidgetIdToBeEdited;
 </script>

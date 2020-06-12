@@ -6,6 +6,10 @@ function updateFiveStarValue(widgetId,value) {
 function deleteFiveStarValue(widgetId) {
    delete globalResponse[widgetId];
 }
+function updateShortAnswerResponse(widgetId,response) {
+    globalResponse[widgetId] = {widgetId:widgetId,widgetType: "Short Answer","response":response}
+    console.log(globalResponse[widgetId]);
+}
 function submitForm() {
     var reponseList = [];
     for (const [key1,value] of Object.entries(globalResponse)){
