@@ -7,3 +7,19 @@
 .form-table-head *{
     font-size: large;
 }
+#button-1{
+    background-color:#4dff4d;
+    width: 100px;
+}
+#button-2{
+    background-color: #DCC7AA;
+    width: 100px;
+}
+#button-3{
+    background-color: #6B7A8F;
+    width: 100px;
+}
+#button-4{
+    background-color: #F7882F;
+    width: 100px;
+}

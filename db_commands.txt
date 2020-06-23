@@ -1,0 +1,17 @@
+1. To run db
+	java -D"java.library.path=./DynamoDBLocal_lib" -jar DynamoDBLocal.jar  -port 8100
+
+2. To scan any table
+	aws dynamodb scan --table-name formResponse --endpoint-url http://localhost:8100 
+
+3. To create Table
+	aws dynamodb --endpoint-url http://localhost:8100 create-table --table-name language --attribute-definitions AttributeName=locale,AttributeType=S AttributeName=stringId,AttributeType=S --key-schema AttributeName=locale,KeyType=HASH AttributeName=stringId,KeyType=RANGE --provisioned-throughput ReadCapacityUnits=1000,WriteCapacityUnits=1000
+
+4. To describe Table
+	aws dynamodb --endpoint-url http://localhost:8100 describe-table --table-name language 
+
+5. To delete Table
+	aws dynamodb --endpoint-url http://localhost:8100 delete-table --table-name language
+
+6. To delete Item in Table
+	aws dynamodb delete-item --endpoint-url http://localhost:8100 --table-name formResponse --key={\"userId\":{\"S\":\"xyz\"},\"responseId\":{\"S\":\"f39946c3f1ed47e29dd843a2a48c6bdf\"}}

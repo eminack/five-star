@@ -20,18 +20,18 @@ function CreateFiveStarWidget() {
         headers:{'content-type' : 'application/json'},
         body : JSON.stringify({
             'widgetName': widgetName,
-            'widgetType':"Five Star",
+            'widgetType':"FIVE_STAR",
             'widgetVersion': 1,
             'templateId': "fivestar",
-            'userCreated':"",
-            'data': {
-                'title': title,
-                'smiley1': smiley1,
-                'smiley2': smiley2,
-                'smiley3': smiley3,
-                'smiley4': smiley4,
-                'smiley5': smiley5
-            }
+            'metaData':{
+                'userCreated':"xyz"
+            },
+            'title': title,
+            'hint1': smiley1,
+            'hint2': smiley2,
+            'hint3': smiley3,
+            'hint4': smiley4,
+            'hint5': smiley5
         })
     }).then(res => res.json()).
     then(data => obj=data).

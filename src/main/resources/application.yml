@@ -1,0 +1,17 @@
+spring:
+  mvc:
+    view:
+      prefix: /resources/
+      suffix: .html
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+
+amazon:
+  access:
+    key: key
+    secret-key: key2
+  region: us-west-2
+  end-point:
+    url: http://localhost:8100/

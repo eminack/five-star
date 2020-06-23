@@ -17,13 +17,9 @@ function EditShortAnsWidgetForForm() {
         body : JSON.stringify({
             'widgetId':WidgetIdToBeEdited,
             'widgetName': widgetName,
-            'widgetType':"Short Answer",
-            'widgetVersion': 1,
-            'templateId': "shortAns",
-            'data': {
-                'title': title,
-                'bookmark': bookmark
-            }
+            'widgetType':"SHORT_ANSWER",
+            'title': title,
+            'hint': bookmark
         })
     }).then(res => res.json()).
     then(data => obj=data).

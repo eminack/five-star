@@ -15,14 +15,14 @@ function CreateShortAnsWidget() {
         headers:{'content-type' : 'application/json'},
         body : JSON.stringify({
             'widgetName': widgetName,
-            'widgetType':"Short Answer",
+            'widgetType':"SHORT_ANSWER",
             'widgetVersion': 1,
             'templateId': "shortAns",
-            'userCreated':"",
-            'data': {
-                'title': title,
-                'bookmark': bookmark
-                }
+            'metaData':{
+                'userCreated':"xyz"
+            },
+            'title': title,
+            'hint': bookmark
         })
     }).then(res => res.json()).
     then(data => obj=data).

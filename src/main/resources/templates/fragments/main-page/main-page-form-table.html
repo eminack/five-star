@@ -7,27 +7,34 @@
         <table class="table table-hover">
             <thead class="form-table-head">
             <tr>
-                <th th:text="#{main-page-form-table-column-1-heading}"  width="30%">Name</th>
-                <th th:text="#{main-page-form-table-column-2-heading}"  width="30%">Version</th>
+                <th th:text="#{main-page-form-table-column-1-heading}"  width="20%">Name</th>
+                <th th:text="#{main-page-form-table-column-2-heading}"  width="20%">Version</th>
+                <th th:text="#{main-page-form-table-column-3-heading}"  width="20%">Status</th>
                 <th width="40%"></th>
             </tr>
             </thead>
             <tbody class="form-table-body">
                 <th:block th:each="form:${forms}">
                     <tr>
-                        <td  th:text="#{${form.name}}"></td>
-                        <td  th:text="${form.version}"></td>
+                        <td  th:text="#{${form.formName}}"></td>
+                        <td  th:text="${form.formVersion}"></td>
+                        <td  th:text="${form.formStatus}"></td>
                         <td>
-                            <a  type="button" class="btn btn-info" th:text="#{main-page-formURL-copy}"
+                            <span th:if="${form.formStatus eq 'PUBLISHED'}">
+                            <a  type="button" id="button-1" class="btn" th:text="#{main-page-formURL-copy}"
                                th:data-thing="${form.formId}" onclick="copyFormUrl(this.getAttribute('data-thing'));">
                                 Copy URL
                             </a>
-                            <a type="button" class="btn btn-success" th:text="#{main-page-edit-button}"
+                            </span>
+                            <span th:if="${form.formStatus eq 'DRAFT'}">
+                            <a type="button" id="button-2" class="btn" th:text="#{main-page-edit-button}"
                                th:href="@{'/form/' + ${form.formId} + '/edit'}">Edit</a>
-                            <a type="button" class="btn btn-danger" th:text="#{main-page-delete-button}"
-                               th:href="@{'/form/' + ${form.formId} + '/delete'}">Delete</a>
-                            <a type="button" class="btn btn-dark" th:text="#{main-page-view-button}"
+                            </span>
+                            <a type="button" id="button-3" class="btn" th:text="#{main-page-view-button}"
                                th:href="@{'/form/' + ${form.formId} + '/preview'}">Preview</a>
+                            <a type="button" id="button-4" class="btn" th:text="#{main-page-delete-button}"
+                               th:data-id="${form.formId}" onclick="deleteForm(this.getAttribute('data-id'))">
+                                Delete</a>
                         </td>
                     </tr>
                 </th:block>

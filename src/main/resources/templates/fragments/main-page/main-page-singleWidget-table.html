@@ -8,8 +8,8 @@
             <thead class="singleWidget-table-head">
             <tr>
                 <th th:text="#{main-page-widget-table-column-1-heading}"  width="20%">Name</th>
-                <th th:text="#{main-page-widget-table-column-2-heading}"  width="25%">Type</th>
-                <th th:text="#{main-page-widget-table-column-3-heading}"  width="15%">Version</th>
+                <th th:text="#{main-page-widget-table-column-3-heading}"  width="20%">Version</th>
+                <th th:text="#{main-page-widget-table-column-2-heading}"  width="20%">Type</th>
                 <th width="40%"></th>
             </tr>
             </thead>
@@ -17,22 +17,23 @@
                 <th:block th:each="widget:${widgets}">
                     <tr>
                         <td  th:text="#{${widget.widgetName}}"></td>
-                        <td  th:text="${widget.widgetType}"></td>
                         <td  th:text="${widget.widgetVersion}"></td>
+                        <td  th:text="${widget.widgetType}"></td>
                         <td>
-                            <a type="button" class="btn btn-info" th:text="#{main-page-formURL-copy}"
+                            <a type="button" id="bttn-1" class="btn" th:text="#{main-page-formURL-copy}"
                                 th:data-thing="${widget.widgetId}" onclick="copyWidgetUrl(this.getAttribute('data-thing'));">
                                 Copy URL
                             </a>
-                            <a type="button" class="btn btn-success" th:text="#{main-page-edit-button}"
+                            <a type="button" id="bttn-2" class="btn" th:text="#{main-page-edit-button}"
                                th:data-id="${widget.widgetId}" th:data-templateId="${widget.templateId}"
                                onclick="displayModalForId(this.getAttribute('data-id'),this.getAttribute('data-templateId'));">
                                 Edit
                             </a>
-                            <a type="button" class="btn btn-danger"  th:data-thing="${widget.widgetId}"
+                            <a type="button" id="bttn-3" class="btn"  th:text="#{main-page-view-button}"
+                               th:href="@{'/widget/' + ${widget.widgetId}}">View</a>
+                            <a type="button" id="bttn-4" class="btn "  th:data-thing="${widget.widgetId}"
                                 th:text="#{main-page-delete-button}" onclick="deleteWidget(this.getAttribute('data-thing'));">Delete</a>
-                            <a type="button" class="btn btn-dark"  th:text="#{main-page-view-button}"
-                                th:href="@{'/widget/' + ${widget.widgetId}}">View</a>
+
                         </td>
                     </tr>
                 </th:block>

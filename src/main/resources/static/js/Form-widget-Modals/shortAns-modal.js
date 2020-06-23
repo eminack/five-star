@@ -15,17 +15,19 @@ function CreateShortAnsWidgetForForm() {
         headers:{'content-type' : 'application/json'},
         body : JSON.stringify({
             'widgetName': widgetName,
-            'widgetType':"Short Answer",
+            'widgetType':"SHORT_ANSWER",
             'widgetVersion': 1,
             'templateId': "shortAns",
-            'data': {
-                'title': title,
-                'bookmark': bookmark
-                }
+            'metaData':{
+                'userCreated':"xyz"
+            },
+            'title': title,
+            'hint': bookmark
+
         })
     }).then(res => res.json()).
     then(data => obj=data).
     then(()=>console.log(obj)).
-    then(()=>window.location.href = "http://localhost:8080/widget/" + obj["widgetId"]);
+    then(()=>window.location.href = "http://localhost:8080/form/"+formid+"/edit");
     return false;
 }

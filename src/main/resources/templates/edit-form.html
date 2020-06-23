@@ -15,11 +15,6 @@
             <div id="main" class="main  two-column">
                 <h2 id="live-preview-heading" th:text="#{edit-form-column-2-heading}" >Live Preview</h2>
                 <hr id="underline" class="style5">
-                <div id="wrapper1" class="wrapper">
-                    <button th:text="#{edit-form-button-copy-url}" type="button" class="btn btn-success btn-md"
-                            id="button-copy-url" onclick="CopyFormUrl()">Copy Url
-                    </button>
-                </div>
                 <br>
                 <div class="container" id="live-preview-container">
                     <th:block th:each="widget:${form.widgets}">
@@ -34,10 +29,10 @@
         </div>
         <br>
         <div th:replace="common/language-change.html"></div>
-        <div th:insert="Form-widget-Modals/fivestar-edit-modal.html"></div>
-        <div th:insert="Form-widget-Modals/fivestar-modal.html"></div>
-        <div th:insert="Form-widget-Modals/shortAns-modal.html"></div>
-        <div th:insert="Form-widget-Modals/shortAns-edit-modal.html"></div>
+        <div th:insert="form-widget-modals/fivestar-edit-modal.html"></div>
+        <div th:insert="form-widget-modals/fivestar-modal.html"></div>
+        <div th:insert="form-widget-modals/shortAns-modal.html"></div>
+        <div th:insert="form-widget-modals/shortAns-edit-modal.html"></div>
     </div>
 </body>
 
@@ -46,5 +41,4 @@
     let formid = [[${form.formId}]];
     var WidgetIdToBeEdited;
 </script>
-<script th:src="@{/js/edit-form.js}" type="text/javascript"></script>
 </html>

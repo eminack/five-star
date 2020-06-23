@@ -6,4 +6,17 @@
 }
 #widget-table-body *{
     font-size: medium;
+
+}
+#btn-1{
+    background-color: #DCC7AA;
+    width: 70px;
+}
+#btn-2{
+    background-color:#6B7A8F;
+    width: 70px;
+}
+#btn-3{
+    background-color: #F7882F;
+    width: 70px;
 }

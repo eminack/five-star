@@ -20,17 +20,13 @@ function EditFiveStarWidget() {
         body : JSON.stringify({
             'widgetId':WidgetIdToBeEdited,
             'widgetName': widgetName,
-            'widgetType':"Five Star",
-            'widgetVersion': 1,
-            'templateId': "fivestar",
-            'data': {
+            'widgetType':"FIVE_STAR",
                 'title': title,
-                'smiley1': smiley1,
-                'smiley2': smiley2,
-                'smiley3': smiley3,
-                'smiley4': smiley4,
-                'smiley5': smiley5
-            }
+                'hint1': smiley1,
+                'hint2': smiley2,
+                'hint3': smiley3,
+                'hint4': smiley4,
+                'hint5': smiley5
         })
     }).then(res => res.json()).
     then(data => obj=data).

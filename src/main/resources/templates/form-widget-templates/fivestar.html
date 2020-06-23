@@ -9,11 +9,11 @@
     <div class="card border-dark text-center text">
         <div class="card-body bg-light">
             <div class="rating-box">
-                <h3 id="heading" th:text="#{${widget.data.title}}">Example heading</h3>
+                <h3 id="heading" th:text="#{${widget.title}}">Example heading</h3>
                 <input th:id=${widget.widgetId} th:name="${widget.widgetId}" value="3" class="rating-loading"
-                       th:attr="data-sm1=#{${widget.data.smiley1}},data-sm2=#{${widget.data.smiley2}},
-                       data-sm3=#{${widget.data.smiley3}},data-sm4=#{${widget.data.smiley4}},
-                        data-sm5=#{${widget.data.smiley5}}"size="md">
+                       th:attr="data-sm1=#{${widget.hint1}},data-sm2=#{${widget.hint2}},
+                       data-sm3=#{${widget.hint3}},data-sm4=#{${widget.hint4}},
+                        data-sm5=#{${widget.hint5}}"size="md">
 
                     <script th:inline="javascript">
                     var id = [[${widget.widgetId}]];

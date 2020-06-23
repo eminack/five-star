@@ -1,7 +1,7 @@
 <link th:href="@{/css/edit-form/column-left-top.css}" media="all" rel="stylesheet" type="text/css" />
 <div class="row">
-    <div class="dropdown col col-md-9">
-        <button class="btn btn-warning btn-lg dropdown-toggle"  type="button" id="dropdownMenu2"
+    <div class="dropdown col col-md-7">
+        <button class="btn btn-lg dropdown-toggle"  type="button" id="dropdownMenu2"
                 th:text="#{edit-form-button-add-widget}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Add Widget
         </button>
@@ -20,7 +20,10 @@
             </button>
         </div>
     </div>
-    <button th:text="#{edit-form-button-preview-form}" class="btn btn-dark btn-lg" id="submit-button"
+    <button th:text="#{edit-form-button-publish-form}" class="btn btn-lg mr-3" id="publish-button" type="button" onclick="publishForm()" style="padding-right: 10px">
+        Publish Form
+    </button>
+    <button th:text="#{edit-form-button-preview-form}" class="btn btn-lg" id="preview-button"
              type="button" onclick="viewForm()">
         <i class="far fa-eye"></i>
         Preview Form
