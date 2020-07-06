@@ -12,7 +12,7 @@
                 <h3 id="heading" th:text="#{${widget.title}}">Example heading</h3>
                 <input th:id=${widget.widgetId} th:name="${widget.widgetId}" th:attr="data-sm1=#{${widget.hint1}},
                     data-sm2=#{${widget.hint2}},data-sm3=#{${widget.hint3}},data-sm4=#{${widget.hint4}},
-                    data-sm5=#{${widget.hint5}}" value="3" class="rating-loading" size="md">
+                    data-sm5=#{${widget.hint5}}" value="0" class="rating-loading" size="md">
 
                 <script th:inline="javascript">
                     var id = [[${widget.widgetId}]];

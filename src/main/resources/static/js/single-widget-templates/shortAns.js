@@ -3,7 +3,7 @@ $('#'+id).change(function(){
     var response = $('#'+id).val().trim();
     console.log(response);
     if (confirm("Do You Want to submit ?")) {
-        var url = "http://localhost:8080/widgetresponse";
+        var url = "http://localhost:8080/widgetResponse";
         fetch(url, {
             method: 'POST',
             headers: {'content-type': 'application/json'},

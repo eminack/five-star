@@ -8,15 +8,15 @@ import java.util.HashMap;
 
 @Component
 public class WidgetTypeFactory {
-    private static HashMap <String,Class> widgetTypeClassHashMap;
+    private static HashMap<String, Class> widgetTypeClassHashMap;
 
-    WidgetTypeFactory(){
+    WidgetTypeFactory() {
         widgetTypeClassHashMap = new HashMap<>();
         widgetTypeClassHashMap.put("FIVE_STAR", FiveStar.class);
         widgetTypeClassHashMap.put("SHORT_ANSWER", ShortAnswer.class);
     }
 
-    public Class getWidgetTypeClass(String widgetType){
+    public Class getWidgetTypeClass(final String widgetType) {
         return widgetTypeClassHashMap.get(widgetType);
     }
 

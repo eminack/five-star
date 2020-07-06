@@ -11,7 +11,7 @@ $('#'+id).on('rating:change',function(event, value, caption) {
     let obj;
     console.log(value);
     console.log(caption);
-    var url = "http://localhost:8080/widgetresponse";
+    var url = "http://localhost:8080/widgetResponse";
     fetch(url, {
         method: 'POST',
         headers: {'content-type': 'application/json'},

@@ -1,25 +1,31 @@
-#left-column-button-create-new-form{
+#left-column-button-create-new-form {
     font-size: medium;
     width: 180px;
     background-color: #368cbf;
 }
-#dropdownMenu2{
+
+#dropdownMenu2 {
     font-size: medium;
     width: 180px;
     background-color: #7ebc59;
 }
-#left-column-button-create-new-widget{
+
+#left-column-button-create-new-widget {
     font-size: medium;width: 180px
 }
-#left-column-button-fivestar{
+
+#left-column-button-fivestar {
     font-size: medium;
 }
-#left-column-button-shortanswer{
+
+#left-column-button-shortanswer {
     font-size: medium;
 }
-#left-column-button-HMD{
+
+#left-column-button-HMD {
     font-size: medium;
 }
-#left-column-button-scale{
+
+#left-column-button-scale {
     font-size: medium;
 }

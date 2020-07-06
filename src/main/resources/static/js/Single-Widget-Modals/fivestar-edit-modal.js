@@ -6,6 +6,7 @@ function clearFiveStarModal() {
     document.getElementById("Edit-smiley3").value = "";
     document.getElementById("Edit-smiley4").value = "";
     document.getElementById("Edit-smiley5").value = "";
+
 }
 function EditFiveStarWidget() {
     let obj;
@@ -32,5 +33,6 @@ function EditFiveStarWidget() {
     then(data => obj=data).
     then(()=>console.log(obj)).then(()=>window.location.href = "http://localhost:8080/widget/" + obj["widgetId"]);
     $('#fivestarEditModal').modal('hide');
+
     return false;
 }

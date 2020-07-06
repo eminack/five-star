@@ -1,12 +1,13 @@
 package com.amazon.creturns.rex.voc.services;
 
 import com.amazon.creturns.rex.voc.HttpServletRequestProcessor;
-import com.amazon.creturns.rex.voc.repositories.widget.WidgetRepository;
+import com.amazon.creturns.rex.voc.repositories.WidgetRepository;
 import com.amazon.creturns.rex.voc.widget.AbstractWidget;
 import com.amazon.creturns.rex.voc.widget.WidgetDeserializer;
 import com.amazon.creturns.rex.voc.widget.WidgetProcessorFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -19,14 +20,12 @@ public class WidgetService {
     private WidgetDeserializer widgetDeserializer;
     @Autowired
     private WidgetProcessorFactory widgetProcessorFactory;
-    @Autowired
-    private HttpServletRequestProcessor httpServletRequestProcessor;
+
 
     public AbstractWidget createNewWidget(HttpServletRequest httpServletRequest) {
-        String jsonString = httpServletRequestProcessor.convertRequestBodyToJsonString(httpServletRequest);
+        String jsonString = HttpServletRequestProcessor.convertRequestBodyToJsonString(httpServletRequest);
         String type = widgetDeserializer.getWidgetType(jsonString);
-        AbstractWidget obj =  widgetDeserializer.deserialize(jsonString,type);
-        return obj;
+        return widgetDeserializer.deserialize(jsonString, type);
     }
 
     public AbstractWidget save(AbstractWidget obj) {
@@ -35,9 +34,9 @@ public class WidgetService {
         return obj;
     }
 
-    public AbstractWidget getWidgetById(String id) {
+    public AbstractWidget getWidgetById(final String id) {
         AbstractWidget obj = widgetRepository.getSingleWidgetById(id);
-        obj.getMetaData().updateLastServeTime();
+        obj.updateLastServeTime();
         widgetRepository.save(obj);
         return obj;
     }
@@ -46,15 +45,16 @@ public class WidgetService {
         return widgetRepository.getAllWidgets();
     }
 
-    public void deleteWidgetById(String id) {
+    public void deleteWidgetById(final String id) {
         widgetRepository.deleteWidgetById(id);
     }
 
-    public AbstractWidget updateWidget(String id, HttpServletRequest httpServletRequest) {
+    public AbstractWidget updateWidget(final String id, HttpServletRequest httpServletRequest) {
         //extracting the received object
-        String jsonString  = httpServletRequestProcessor.convertRequestBodyToJsonString(httpServletRequest);
+        String jsonString  = HttpServletRequestProcessor.convertRequestBodyToJsonString(httpServletRequest);
         String widgetType = widgetDeserializer.getWidgetType(jsonString);
-        AbstractWidget newObj = widgetDeserializer.deserialize(jsonString,widgetType);
+        AbstractWidget newObj = widgetDeserializer.deserialize(jsonString, widgetType);
+
         //validating the deserialized object
         newObj = widgetProcessorFactory.getWidgetProcessor(widgetType).process(newObj);
 

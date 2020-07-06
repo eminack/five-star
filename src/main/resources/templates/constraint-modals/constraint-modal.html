@@ -1,0 +1,76 @@
+<link th:href="@{/css/constraint-modals/constraint-modal.css}" media="all" rel="stylesheet" type="text/css" />
+<div class="modal" id="constraintModal" tabindex="-1" role="dialog" aria-labelledby="constraintModal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title" id="constraintModalTitle" th:text="#{add-constraint-heading}" >Add Constraint</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body col-md-12">
+                <form name="constraint-form-1" id="constraintModal-form" onsubmit=" return createConstraint()" >
+                    <div class="row">
+                        <div class="col col-md-12">
+                            <h5 id="choose-any-one" th:text="#{constraint-sublabel}">
+                                Choose Any One
+                            </h5>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-check">
+                              <input class="form-check-input" type="radio" name="checkbox-group" id="checkbox-1"
+                                value="option-1"  onclick="checkBoxClicked()" checked>
+                                <label class="form-check-label" for = "checkbox-1" th:text="#{constraint-radio-1-heading}">
+                                    Make this Widget Mandatory
+                                </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-check">
+                               <input class="form-check-input" type="radio" name="checkbox-group" id="checkbox-2"
+                                value="option-2"  onclick="checkBoxClicked()">
+                                <label class="form-check-label" for="checkbox-2" th:text="#{constraint-radio-2-heading}">
+                                Conditional Display & Mandatory
+                            </label>
+                        </div>
+                    </div>
+                        <div class="option-2-input" id="option-2-input-id">
+                            <br>
+                             <div class="row">
+                                 <div class="col-md-12">
+                                     <div class="form-group">
+                                         <label class="sublabel-1" for="displayConstraint" th:text="#{constraint-radio-2-label-1}">
+                                             Display it when following widgets answered:
+                                         </label>
+                                         <input type="text" class="form-control"
+                                                id="displayConstraint" th:placeholder="#{constraint-radio-2-input-1}">
+                                     </div>
+                                 </div>
+                             </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="sublabel-1" for="mandatoryConstraint" th:text="#{constraint-radio-2-label-2}">
+                                            Make it mandatory when following widgets answered:
+                                        </label>
+                                        <input type="text" class="form-control" id="mandatoryConstraint"
+                                               th:placeholder="#{constraint-radio-2-input-1}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="modal-footer">
+                        <button th:text="#{fivestar-modal-button-cancel}" type="button" class="btn btn-danger" data-dismiss="modal" >Cancel</button>
+                        <input th:value = "#{fivestar-modal-button-submit}" type="submit" class="btn btn-success" >
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/constraint-modals/constraint-modal.js}" type="text/javascript"></script>

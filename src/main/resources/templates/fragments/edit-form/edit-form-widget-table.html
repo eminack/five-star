@@ -7,11 +7,11 @@
         <table class="table table-hover">
             <thead id="widget-table-head">
             <tr>
-                <th  th:text="#{edit-form-widget-table-column-1-heading}" width="20%">Name</th>
-                <th  th:text="#{edit-form-widget-table-column-3-heading}" width="15%">Version</th>
-                <th  th:text="#{edit-form-widget-table-column-2-heading}" width="25%">Type</th>
+                <th  th:text="#{edit-form-widget-table-column-1-heading}" width="10%">Name</th>
+                <th  th:text="#{edit-form-widget-table-column-3-heading}" width="10%">Version</th>
+                <th  th:text="#{edit-form-widget-table-column-2-heading}" width="15%">Type</th>
 
-                <th width="40%"></th>
+                <th width="65%"></th>
             </tr>
             </thead>
             <tbody id="widget-table-body">
@@ -21,6 +21,20 @@
                         <td  th:text="${widget.widgetVersion}"></td>
                         <td  th:text="${widget.widgetType}"></td>
                         <td>
+                            <span th:with = "isConstrained = ${widget.constraints!=null}">
+                                <span th:if = "${isConstrained}">
+                                    <a type="button" id="btn-5" class="btn" th:text="#{del-constraint-button}"
+                                       th:data-widgetId="${widget.widgetId}"onclick="delConstraint(this.getAttribute('data-widgetId'));">
+                                        Del Constraint
+                                    </a>
+                                </span>
+                                <span th:unless="${isConstrained}">
+                                     <a type="button" id="btn-4" class="btn" th:text="#{add-constraint-button}"
+                                        th:data-widgetId="${widget.widgetId}" onclick="displayConstraintModal(this.getAttribute('data-widgetId'));">
+                                        Add Constraint
+                                    </a>
+                                </span>
+                            </span>
                             <a type="button" id="btn-1" class="btn" th:text="#{main-page-edit-button}"
                                th:data-widgetId="${widget.widgetId}" th:data-templateId="${widget.templateId}"
                                onclick="displayModalForThisId(this.getAttribute('data-widgetId'),this.getAttribute('data-templateId'));">Edit
@@ -31,6 +45,7 @@
                             <a type="button" id="btn-3" class="btn"   th:data-id="${widget.widgetId}"
                                th:text="#{main-page-delete-button}" onclick="deleteWidget(this.getAttribute('data-id'));">Delete
                             </a>
+
 
                         </td>
                     </tr>

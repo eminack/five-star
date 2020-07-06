@@ -3,11 +3,12 @@ package com.amazon.creturns.rex.voc.widget;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public final class WidgetSerializer {
-    public  static <T extends AbstractWidget> String serialize(T widget){
-        ObjectMapper mapper = new ObjectMapper();
-        try{
+    private static final ObjectMapper mapper = new ObjectMapper();
+
+    public  static <T extends AbstractWidget> String serialize(final T widget) {
+        try {
             return mapper.writeValueAsString(widget);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
         return null;

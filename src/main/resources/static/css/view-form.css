@@ -1,18 +1,35 @@
-#container-top{
+#container-top {
     border:2px solid #cecece;padding:10px;
 }
-#form-name{
+
+#form-name {
     size: A3;height: max-content;font-size: xx-large;color: white;
 }
-#container-2{
+#container-2 {
     width: 800px;
 }
-#wrapper2{
+
+#wrapper2 {
     text-align: center;
 }
-#submit-form{
+
+#submit-form {
     font-size:x-large;
 }
-#lang{
+
+#lang {
     text-align: center;
+}
+
+.asterik {
+    color: red;
+    font-size: 120%;
+    float: left;
+}
+
+.asterik-note {
+    font-family: 'Helvetica Neue';
+    font-size: 120%;
+    color:black;
+    font-weight:normal;
 }

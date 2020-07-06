@@ -1,22 +1,37 @@
 #widget-table-heading{
     font-size: large;text-align: center;
 }
+
 #widget-table-head *{
     font-size: large;
 }
+
 #widget-table-body *{
-    font-size: medium;
+    font-size: small;
 
 }
+
 #btn-1{
     background-color: #DCC7AA;
     width: 70px;
 }
+
 #btn-2{
     background-color:#6B7A8F;
     width: 70px;
 }
+
 #btn-3{
     background-color: #F7882F;
     width: 70px;
+}
+
+#btn-4{
+    background-color: palegreen;
+    width: 100px;
+}
+
+#btn-5 {
+    background-color: seagreen;
+    width: 100px;
 }

@@ -1,0 +1,37 @@
+#constraintModal-form *{
+     font-size: small;
+}
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 1; /* Firefox */
+    font-size: smaller;
+}
+
+#constraintModalTitle {
+    font-weight: bolder;
+    font-size: large
+}
+
+#choose-any-one {
+    font-weight: lighter;
+    font-size: small;
+    font-style: italic;
+    padding-left: 16px;
+}
+
+.form-check-label {
+    padding-bottom:10px;
+    font-weight:bold;
+    padding-left: 20px;
+    font-size: medium
+}
+
+#option-2-input-id {
+    display: none;
+}
+
+.sublabel-1 {
+    font-size: small;
+    font-weight: normal
+}

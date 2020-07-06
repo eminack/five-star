@@ -1,10 +1,17 @@
-#heading-1{
+#heading-1 {
     font-weight:bold;
 }
-.area-1{
+
+.asterik {
+    color: red;
+    font-size: 120%;
+    float: left;
+}
+
+.area-1 {
     margin-top: 10px;
     width: 300px;
-    height: 100px;
+    height: 90px;
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -28,6 +35,7 @@
     outline-width: 0;
 
 }
-#border-card{
+
+#border-card {
     height: max-content;
 }

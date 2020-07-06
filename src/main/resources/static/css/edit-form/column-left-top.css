@@ -1,17 +1,20 @@
-#dropdownMenu2{
+#dropdownMenu2 {
     font-size: large;float: left;
     background-color: #7ebc59;
 }
-#dropdown-menu *{
+
+#dropdown-menu * {
     font-size: medium;
 
 }
-#preview-button{
+
+#preview-button {
     font-size: large;float: right;
     background-color: #2e3830;
     color: white;
 }
-#publish-button{
+
+#publish-button {
     font-size: large;
     background-color: #c53211;
 }

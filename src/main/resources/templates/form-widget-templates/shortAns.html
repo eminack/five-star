@@ -8,8 +8,14 @@
     <link th:href="@{/css/form-widget-templates/shortAns.css}" media="all" rel="stylesheet" type="text/css" />
     <div class="card border-dark text-center text" id="border-card">
         <div class="card-body bg-light">
+
+            <div th:id="${widget.widgetId}+'asterik'" style="display: none">
+                <span class="asterik">&#x2731;</span>
+            </div>
+
             <h3 id="heading-1" th:text="#{${widget.title}}">Example heading</h3>
             <textarea th:id=${widget.widgetId} class="area-1" th:placeholder="(${widget.hint}!='')? #{${widget.hint}}:''"></textarea>
+
         </div>
         <script th:inline="javascript">
             var id = [[${widget.widgetId}]];

@@ -1,24 +1,30 @@
 #single-widget-table-heading{
     font-family:Arial;font-size: large;
 }
+
 .singleWidget-table-head *{
     font-size: large;
 }
+
 .singleWidget-table-body *{
     font-size: medium;
 }
+
 #bttn-1{
     width: 100px;
     background-color: #4dff4d;
 }
+
 #bttn-2{
     background-color: #DCC7AA;
     width: 100px;
 }
+
 #bttn-3{
     background-color: #6B7A8F;
     width: 100px;
 }
+
 #bttn-4{
     background-color:  #F7882F;
     width: 100px;

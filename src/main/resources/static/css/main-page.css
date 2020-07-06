@@ -95,10 +95,8 @@ p:last-child {
 .side-a {
     float: left;
     position: relative;
-    /*width: 220px;*/
     width: 20%;
     word-wrap: break-word;
-    /*border: 1px solid #dddddd;*/
      border: #002752;
      background: #dddddd;
     margin-right: 20px;
@@ -134,7 +132,7 @@ p:last-child {
     background-color: #cccccc;
 }
 
-/* media queries */
+
 @media only screen and (max-width: 767px) {
     .container {
         width: 100%;

@@ -33,6 +33,7 @@
         <div th:insert="form-widget-modals/fivestar-modal.html"></div>
         <div th:insert="form-widget-modals/shortAns-modal.html"></div>
         <div th:insert="form-widget-modals/shortAns-edit-modal.html"></div>
+        <div th:insert="constraint-modals/constraint-modal.html"></div>
     </div>
 </body>
 
@@ -40,5 +41,10 @@
     //these variable are needed in various Js Files
     let formid = [[${form.formId}]];
     var WidgetIdToBeEdited;
+    var WidgetIdToBeConstrained;
+    var WidgetIdList = [];
+    [# th:each = "widget : ${form.widgets}" ]
+        WidgetIdList.push("[(${widget.widgetId})]");
+    [/]
 </script>
 </html>

@@ -9,6 +9,7 @@ function CreateShortAnsWidgetForForm() {
     let bookmark = $('#bookmark').val();
     if (bookmark==null) bookmark="";
     ClearShortAnsModal();
+
     let url = "http://localhost:8080/form/"+formid+"/add-widget";
     fetch(url,{
         method:'POST',

@@ -1,0 +1,883 @@
+[
+  {
+    "locale": "en_US",
+    "stringId": "main-page-navbar-title",
+    "text": "Self Service Portal"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-navbar-title",
+    "text": "स्वयं सेवा पोर्टल"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-button-new-form",
+    "text": "Create Form"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-button-new-widget",
+    "text": "Create widget"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-button-new-fivestar-widget",
+    "text": "Five-Star Widget"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-button-new-shortanswer-widget",
+    "text": "Short Answer Widget"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-button-new-HMD-widget",
+    "text": "HMD Widget"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-button-new-scale-widget",
+    "text": "Scale Widget"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-form-table-heading",
+    "text": "Forms"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-form-table-column-1-heading",
+    "text": "Name"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-form-table-column-2-heading",
+    "text": "Version"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-button-new-form",
+    "text": "फॉर्म बनाएँ"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-button-new-widget",
+    "text": "विजेट बनाएं"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-button-new-fivestar-widget",
+    "text": "फाइव स्टार विजेट"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-button-new-shortanswer-widget",
+    "text": "लघु उत्तर विजेट"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-button-new-HMD-widget",
+    "text": "HMD विजेट"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-button-new-scale-widget",
+    "text": "स्केल विजेट"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-form-table-heading",
+    "text": "फार्म"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-form-table-column-1-heading",
+    "text": "शीर्षक"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-form-table-column-2-heading",
+    "text": "संस्करण"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "form-name-1",
+    "text": "First Form"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "form-name-2",
+    "text": "Second Form"
+  },
+  {
+    "locale": "hi",
+    "stringId": "form-name-1",
+    "text": "पहला फॉर्म"
+  },
+  {
+    "locale": "hi",
+    "stringId": "form-name-2",
+    "text": "दूसरा फॉर्म"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-formURL-copy",
+    "text": "Copy URL"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-formURL-copy",
+    "text": "यूआरएल कॉपी"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-edit-button",
+    "text": "Edit"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-delete-button",
+    "text": "Delete"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-view-button",
+    "text": "View"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-edit-button",
+    "text": "संपादित "
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-delete-button",
+    "text": "हटाएं"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-view-button",
+    "text": "देखे "
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-widget-table-heading",
+    "text": "Widgets"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-widget-table-column-1-heading",
+    "text": "Name"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-widget-table-column-2-heading",
+    "text": "Type"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-widget-table-heading",
+    "text": "विजेट"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-widget-table-column-1-heading",
+    "text": "शीर्षक"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-widget-table-column-2-heading",
+    "text": "प्रकार"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "create-formmodal-heading",
+    "text": "Create Form"
+  },
+  {
+    "locale": "hi",
+    "stringId": "create-formmodal-heading",
+    "text": "फॉर्म बनाएँ"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "create-formmodal-form-name",
+    "text": "Form Name String ID"
+  },
+  {
+    "locale": "hi",
+    "stringId": "create-formmodal-form-name",
+    "text": "फ़ार्म शीर्षक String ID"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "create-formmodal-button-cancel",
+    "text": "Cancel"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "create-formmodal-button-submit",
+    "text": "Submit"
+  },
+  {
+    "locale": "hi",
+    "stringId": "create-formmodal-button-cancel",
+    "text": "रद्द करें"
+  },
+  {
+    "locale": "hi",
+    "stringId": "create-formmodal-button-submit",
+    "text": "सबमिट "
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-modal-title",
+    "text": "Five Star Widget"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-modal-widget-name",
+    "text": "String ID for Widget Name"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-modal-widget-question",
+    "text": "String ID for Widget Question"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-modal-Smiley-1-hint",
+    "text": "Smiley 1 String ID"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-modal-Smiley-2-hint",
+    "text": "Smiley 2 String ID"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-modal-Smiley-3-hint",
+    "text": "Smiley 3 String ID"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-modal-Smiley-4-hint",
+    "text": "Smiley 4 String ID"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-modal-Smiley-5-hint",
+    "text": "Smiley 5 String ID"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-modal-button-cancel",
+    "text": "Cancel"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-modal-button-submit",
+    "text": "Submit"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-modal-title",
+    "text": "फाइव स्टार विजेट"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-modal-widget-name",
+    "text": "विजेट शीर्षक की  String ID"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-modal-Smiley-1-hint",
+    "text": "स्माइली 1 String ID"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-modal-Smiley-2-hint",
+    "text": "स्माइली 2 String ID"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-modal-Smiley-3-hint",
+    "text": "स्माइली 3 String ID"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-modal-Smiley-4-hint",
+    "text": "स्माइली 4 String ID"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-modal-Smiley-5-hint",
+    "text": "स्माइली 5 String ID"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-modal-button-cancel",
+    "text": "रद्द करें"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-modal-button-submit",
+    "text": "सबमिट "
+  },
+  {
+    "locale": "en_US",
+    "stringId": "widget-name-1",
+    "text": "Widget-1"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "widget-name-2",
+    "text": "Widget-2"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "widget-name-3",
+    "text": "Widget-3"
+  },
+  {
+    "locale": "hi",
+    "stringId": "widget-name-1",
+    "text": "विजेट-1"
+  },
+  {
+    "locale": "hi",
+    "stringId": "widget-name-2",
+    "text": "विजेट-2"
+  },
+  {
+    "locale": "hi",
+    "stringId": "widget-name-3",
+    "text": "विजेट-3"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-hint-1star-1",
+    "text": "VERY BAD"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-hint-1star-2",
+    "text": "POOR"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-hint-1star-1",
+    "text": "घटिया"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-hint-1star-2",
+    "text": "असंतुष्ट"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-hint-2star-1",
+    "text": "BAD"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-hint-2star-2",
+    "text": "AVERAGE"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-hint-2star-1",
+    "text": "खराब"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-hint-2star-2",
+    "text": "सामान्य"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-hint-3star-1",
+    "text": "GOOD"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-hint-3star-2",
+    "text": "SATISFACTORY"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-hint-3star-1",
+    "text": "उत्तम"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-hint-3star-2",
+    "text": "संतोषजनक"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-hint-4star-1",
+    "text": "VERY GOOD"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-hint-4star-2",
+    "text": "GREAT"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-hint-4star-1",
+    "text": "बहुत अच्छा"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-hint-4star-2",
+    "text": "शानदार"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-hint-5star-1",
+    "text": "LOVED IT !"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-hint-5star-2",
+    "text": "EXCELLENT"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-hint-5star-1",
+    "text": "सर्वोत्तम"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-hint-5star-2",
+    "text": "अत्युत्तम"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-question-1",
+    "text": "How do you rate your return's experience ?"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-question-1",
+    "text": "आप अपने रिटर्न के अनुभव को कैसे आंकते हैं ?"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-question-2",
+    "text": "How do you rate our service ?"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-question-2",
+    "text": "आप हमारी सेवा का मूल्यांकन कैसे करेंगे ?"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "single-widget-submit-alert",
+    "text": "Thank You !! Your Response has been recorded successfully."
+  },
+  {
+    "locale": "hi",
+    "stringId": "single-widget-submit-alert",
+    "text": "धन्यवाद !! आपकी प्रतिक्रिया सफलतापूर्वक दर्ज की गई है."
+  },
+  {
+    "locale": "en_US",
+    "stringId": "edit-form-button-add-widget",
+    "text": "Add Widget"
+  },
+  {
+    "locale": "hi",
+    "stringId": "edit-form-button-add-widget",
+    "text": "विजेट जोड़ें"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "edit-form-button-preview-form",
+    "text": "Preview Form"
+  },
+  {
+    "locale": "hi",
+    "stringId": "edit-form-button-preview-form",
+    "text": "प्रथम छवि"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "edit-form-widget-table-heading",
+    "text": "List of Widgets"
+  },
+  {
+    "locale": "hi",
+    "stringId": "edit-form-widget-table-heading",
+    "text": "विगेट्स की सूची"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "edit-form-widget-table-column-1-heading",
+    "text": "Name"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "edit-form-widget-table-column-2-heading",
+    "text": "Type"
+  },
+  {
+    "locale": "hi",
+    "stringId": "edit-form-widget-table-column-1-heading",
+    "text": "शीर्षक"
+  },
+  {
+    "locale": "hi",
+    "stringId": "edit-form-widget-table-column-2-heading",
+    "text": "प्रकार"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "edit-form-column-2-heading",
+    "text": "Live Preview"
+  },
+  {
+    "locale": "hi",
+    "stringId": "edit-form-column-2-heading",
+    "text": "प्रथम छवि"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "edit-form-button-copy-url",
+    "text": "Copy Url"
+  },
+  {
+    "locale": "hi",
+    "stringId": "edit-form-button-copy-url",
+    "text": "यूआरएल कॉपी करें"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "view-form-button-submit",
+    "text": "Submit"
+  },
+  {
+    "locale": "hi",
+    "stringId": "view-form-button-submit",
+    "text": "जमा करें"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "lang-change",
+    "text": "Language"
+  },
+  {
+    "locale": "hi",
+    "stringId": "lang-change",
+    "text": "भाषा"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "lang-eng",
+    "text": "English"
+  },
+  {
+    "locale": "hi",
+    "stringId": "lang-eng",
+    "text": "अंग्रेज़ी"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "lang-hindi",
+    "text": "Hindi"
+  },
+  {
+    "locale": "hi",
+    "stringId": "lang-hindi",
+    "text": "हिन्दी"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-modal-widget-question",
+    "text": "विजेट प्रश्न की String ID"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-button-home",
+    "text": "Main-page"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-button-home",
+    "text": "मुख्य पृष्ठ"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "main-page-widget-table-column-3-heading",
+    "text": "Version"
+  },
+  {
+    "locale": "hi",
+    "stringId": "main-page-widget-table-column-3-heading",
+    "text": "संस्करण"
+  },
+  {
+    "locale": "hi",
+    "stringId": "edit-form-widget-table-column-3-heading",
+    "text": "संस्करण"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "edit-form-widget-table-column-3-heading",
+    "text": "Version"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "shortAns-modal-title",
+    "text": "Short Answer Widget"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "shortAns-modal-widget-name",
+    "text": "String ID for Widget Name"
+  },
+  {
+    "locale": "hi",
+    "stringId": "shortAns-modal-widget-name",
+    "text": "विजेट शीर्षक की  String ID"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "shortAns-modal-widget-question",
+    "text": "String ID for Question"
+  },
+  {
+    "locale": "hi",
+    "stringId": "shortAns-modal-widget-question",
+    "text": "सवाल की String ID"
+  }
+  {
+    "locale": "en_US",
+    "stringId": "shortAns-modal-hint",
+    "text": "String ID for hint"
+  },
+  {
+    "locale": "hi",
+    "stringId": "shortAns-modal-hint",
+    "text": "सहायक-सूचना की String ID"
+  },
+  {
+    "locale": "hi",
+    "stringId": "shortAns-modal-title",
+    "text": "संक्षिप्त जवाब विजेट"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "short-answer-question-1",
+    "text": "How was experience ?"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "short-answer-question-2",
+    "text": "How was the resolution ?"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "short-answer-hint-1",
+    "text": "Tell briefly.."
+  },
+  {
+    "locale": "en_US",
+    "stringId": "short-answer-hint-2",
+    "text": "Demo part"
+  },
+  {
+    "locale": "hi",
+    "stringId": "short-answer-question-1",
+    "text": "कैसा अनुभव रहा?"
+  },
+  {
+    "locale": "hi",
+    "stringId": "short-answer-question-2",
+    "text": "संकल्प कैसा था?"
+  },
+  {
+    "locale": "hi",
+    "stringId": "short-answer-hint-1",
+    "text": "संक्षेप में बताएं.."
+  },
+  {
+    "locale": "hi",
+    "stringId": "short-answer-hint-2",
+    "text": "डेमो.."
+  },
+  {
+    "locale":"en_US",
+    "stringId":"main-page-form-table-column-3-heading",
+    "text":"Status"
+  },
+  {
+    "locale":"hi",
+    "stringId":"main-page-form-table-column-3-heading",
+    "text":"स्थिति"
+  },
+  {
+    "locale":"en_US",
+    "stringId":"edit-form-button-publish-form",
+    "text":"Publish Form"
+  },
+  {
+    "locale":"hi",
+    "stringId":"edit-form-button-publish-form",
+    "text":"प्रकाशित करे"
+  },
+  {
+  	"locale":"en_US",
+  	"stringId":"add-constraint-button",
+  	"text":"Add Constraint"
+  },
+  {
+  	"locale":"hi",
+  	"stringId":"add-constraint-button",
+  	"text":"विवशता जोड़े"
+  },
+  {
+  	"locale":"en_US",
+  	"stringId":"del-constraint-button",
+  	"text":"Del Constraint"
+  },
+  {
+  	"locale":"hi",
+  	"stringId":"del-constraint-button",
+  	"text":"विवशता हटाना"
+  },
+  {
+  	"locale":"en_US",
+  	"stringId":"add-constraint-heading",
+  	"text":"Add Constraint"
+  },
+  {
+  	"locale":"hi",
+  	"stringId":"add-constraint-heading",
+  	"text":"विवशता जोड़ना"
+  },
+  {
+  	"locale":"hi",
+  	"stringId":"constraint-sublabel",
+  	"text":"किसी एक को चुनें"
+  },
+  {
+  	"locale":"en_US",
+  	"stringId":"constraint-sublabel",
+  	"text":"Choose Any One"
+  },
+  {
+  	"locale":"en_US",
+  	"stringId":"constraint-radio-1-heading",
+  	"text":"Make this Widget Mandatory"
+  },
+  {
+  	"locale":"hi",
+  	"stringId":"constraint-radio-1-heading",
+  	"text":"इस विजेट को अनिवार्य बनाएं"
+  },
+  {
+  	"locale":"en_US",
+  	"stringId":"constraint-radio-2-heading",
+  	"text":"Conditional Display & Mandatory"
+  },
+  {
+  	"locale":"hi",
+  	"stringId":"constraint-radio-2-heading",
+  	"text":"सशर्त प्रदर्शन और अनिवार्य"
+  },
+  {
+  	"locale":"en_US",
+  	"stringId":"constraint-radio-2-label-1",
+  	"text":"Display it when following widgets answered"
+  },
+  {
+  	"locale":"hi",
+  	"stringId":"constraint-radio-2-label-1",
+  	"text":"इन विजेट्स के उत्तर देने के बाद इसे प्रदर्शित करें"
+  },
+  {
+  	"locale":"en_US",
+  	"stringId":"constraint-radio-2-input-1",
+  	"text":"Enter serial number of widgets seperated by comma"
+  },
+  {
+  	"locale":"hi",
+  	"stringId":"constraint-radio-2-input-1",
+  	"text":"कॉमा द्वारा अलग किए गए विगेट्स के सीरियल नंबर दर्ज करें"
+  },
+  {
+  	"locale":"en_US",
+  	"stringId":"constraint-radio-2-label-2",
+  	"text":"Make it mandatory when following widgets answered"
+  },
+  {
+  	"locale":"hi",
+  	"stringId":"constraint-radio-2-label-2",
+  	"text":"इन विगेट्स के जवाब के बाद इसे अनिवार्य करें"
+  },
+  {
+  	"locale":"en_US",
+  	"stringId":"mandatory-label",
+  	"text":"Mandatory Fields"	
+  },
+  {
+  	"locale":"hi",
+  	"stringId":"mandatory-label",
+  	"text":"अनिवार्य क्षेत्र"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "fivestar-question-3",
+    "text": "Rate your returns page experience"
+  },
+  {
+    "locale": "hi",
+    "stringId": "fivestar-question-3",
+    "text": "अपने रिटर्न पेज अनुभव को रेट करें "
+  },
+  {
+    "locale": "en_US",
+    "stringId": "short-answer-question-3",
+    "text": "Share your feedback with us"
+  },
+  {
+    "locale": "hi",
+    "stringId": "short-answer-question-3",
+    "text": "अपनी प्रतिक्रिया हमारे साथ साझा करें"
+  },
+  {
+    "locale": "hi",
+    "stringId": "short-answer-hint-3",
+    "text": "आपके सुझाव संक्षिप्त में"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "short-answer-hint-3",
+    "text": "Your suggestions in brief"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "short-answer-question-4",
+    "text": "Any suggestions for improvement ?"
+  },
+  {
+    "locale": "hi",
+    "stringId": "short-answer-question-4",
+    "text": "सुधार के लिए कोई सुझाव"
+  },
+  {
+    "locale": "en_US",
+    "stringId": "form-name-3",
+    "text": "Third Form"
+  },
+  {
+    "locale": "hi",
+    "stringId": "form-name-3",
+    "text": "तीसरा फ़ार्म"
+  }
+
+]

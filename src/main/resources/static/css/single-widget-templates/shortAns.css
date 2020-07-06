@@ -1,6 +1,13 @@
 #heading-1{
     font-weight:bold;
 }
+
+.asterik{
+    color: red;
+    font-size: 120%;
+    float: left;
+}
+
 .area-1{
     margin-top: 10px;
     width: 300px;
@@ -28,6 +35,7 @@
     outline-width: 0;
 
 }
+
 #border-card{
     height: max-content;
 }

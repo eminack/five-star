@@ -1,6 +1,9 @@
 package com.amazon.creturns.rex.voc.language;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.*;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,5 +18,6 @@ public class LanguageEntity {
     @DynamoDBAttribute
     private String text;
 
-    public LanguageEntity(){}
+    public LanguageEntity() {
+    }
 }

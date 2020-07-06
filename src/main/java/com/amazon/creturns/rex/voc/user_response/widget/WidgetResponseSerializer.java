@@ -5,14 +5,15 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public final class WidgetResponseSerializer {
-    public static <T extends AbstractWidgetResponse> String serialize(T response){
-        ObjectMapper mapper = new ObjectMapper();
-        try{
+    private static final ObjectMapper mapper = new ObjectMapper();
+
+    public static <T extends AbstractWidgetResponse> String serialize(final T response) {
+        try {
            return mapper.writeValueAsString(response);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             log.error("Error in Serializing WidgetResponse object to String " + ex.getMessage());
             ex.printStackTrace();
         }
-        return null;
+        return "";
     }
 }
