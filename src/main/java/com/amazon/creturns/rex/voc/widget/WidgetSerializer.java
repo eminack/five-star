@@ -26,7 +26,7 @@ public class WidgetSerializer {
         } catch (Exception ex) {
             log.error("Error in serializing AbstractWidget ", ex);
         }
-
-        return null;
+        //return empty string if widget is null
+        return "";
     }
 }

@@ -29,7 +29,7 @@ public class FormController {
     /**
      * This method handles the POST request to create a new Form
      * @param hashMap map containing the @{name} & @{userCreated} field
-     * @return a POJO of created Form
+     * @return a object of created Form
      */
     @RequestMapping(value = "/form", method = RequestMethod.POST)
     @ResponseBody
@@ -115,14 +115,14 @@ public class FormController {
      * This method handles the request to add new widget to Form
      * @param formId ID of form in which the new widget needs to be added
      * @param httpServletRequest incoming request containing the details of widget to be added
-     * @return the updated Form POJO
+     * @return the updated Form object
      */
     @RequestMapping(value = "/form/{id}/add-widget", method = RequestMethod.POST)
     @ResponseBody
     public Form addWidgetToForm(@PathVariable ("id") final String formId,
                                 final HttpServletRequest httpServletRequest) {
 
-        //deserialize the request body into AbstractWidget POJO
+        //deserialize the request body into AbstractWidget object
         final AbstractWidget obj = widgetService.createNewWidget(httpServletRequest);
 
         //add widget to form

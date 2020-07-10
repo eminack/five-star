@@ -174,16 +174,17 @@ public class FormService {
     public void addConstraintsToWidget(final String formId, final String widgetId,
                                        final HttpServletRequest httpServletRequest) {
 
-        final WidgetConstraintCollection constraintCollection = WidgetConstraintCollectionDeserializer.
-                getConstraintCollectionObjectFromHttpRequest(httpServletRequest);
+        /* If the request body has Object of WidgetConstraintCollection then only add that object to widget in Form*/
+        WidgetConstraintCollectionDeserializer.getConstraintCollectionObjectFromHttpRequest(httpServletRequest).
+                ifPresent(widgetConstraintCollection -> {
+                    final Form form = formRepository.getFormById(formId);
 
-        /*find the widget and set it's constraints field
-        * with the constraints received in httpRequestBody*/
-        final Form form = formRepository.getFormById(formId);
-        form.addConstraintsToWidget(widgetId, constraintCollection);
+                    form.addConstraintsToWidget(widgetId,widgetConstraintCollection);
 
-        form.updateLastUpdateTime();
-        formRepository.save(form);
+                    form.updateLastUpdateTime();
+                    formRepository.save(form);
+                });
+
     }
 
     /**

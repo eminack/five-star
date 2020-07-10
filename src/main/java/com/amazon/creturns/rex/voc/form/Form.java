@@ -121,9 +121,8 @@ public class Form implements DynamoDbMethods {
      */
     @JsonIgnore
     public void updateWidgetById(final String widgetId, final AbstractWidget newObj) {
-        this.widgets.stream().parallel().
-                filter(widget -> widget.getWidgetId().compareTo(widgetId) == 0).
-                findFirst().get().updateDetails(newObj);
+        this.widgets.stream().parallel().filter(widget -> widget.getWidgetId().compareTo(widgetId) == 0)
+                .findFirst().ifPresent(widget -> widget.updateDetails(newObj));
     }
 
     /**
@@ -147,15 +146,14 @@ public class Form implements DynamoDbMethods {
     @JsonIgnore
     public void addConstraintsToWidget(final String widgetId, final WidgetConstraintCollection constraintCollection) {
 
-        final AbstractWidget obj = this.widgets.stream().parallel().
-                filter(widget -> widget.getWidgetId().compareTo(widgetId) == 0).
-                findFirst().get();
+        this.widgets.stream().parallel().filter(widget -> widget.getWidgetId().compareTo(widgetId) == 0)
+                .findFirst().ifPresent(widget -> {
+                widget.updateConstraints(constraintCollection);
+                widget.updateLastUpdateTime();
+                });
 
-        obj.updateConstraints(constraintCollection);
-        obj.updateLastUpdateTime();
     }
 
-    /*find thw widget and delete all its constraints*/
 
     /**
      * Deletes the @{constraints} field of a particular widget in @{widgets} list & also sets the @{lastUpdateTime}
@@ -165,11 +163,11 @@ public class Form implements DynamoDbMethods {
     @JsonIgnore
     public void deleteAllConstraintsFromWidget(final String widgetId) {
 
-        final AbstractWidget obj = this.widgets.stream().parallel().
-                filter(widget -> widget.getWidgetId().compareTo(widgetId) == 0).
-                findFirst().get();
+        this.widgets.stream().parallel().filter(widget -> widget.getWidgetId().compareTo(widgetId) == 0)
+                .findFirst().ifPresent(widget -> {
+                    widget.deleteAllConstraint();
+                    widget.updateLastUpdateTime();
+            });
 
-        obj.deleteAllConstraint();
-        obj.updateLastUpdateTime();
     }
 }

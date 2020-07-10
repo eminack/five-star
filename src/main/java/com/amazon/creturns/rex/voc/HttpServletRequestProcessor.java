@@ -15,14 +15,16 @@ public class HttpServletRequestProcessor {
      * @param request the request whose body needs to be extracted
      * @return json string containing request Body.
      */
-    public static String convertRequestBodyToJsonString(HttpServletRequest request) {
+    public static String convertRequestBodyToJsonString(final HttpServletRequest request) {
 
         try (final BufferedReader reader = request.getReader()) {
-             return  reader.lines().collect(Collectors.joining());
+             return reader.lines().collect(Collectors.joining());
         } catch (final Exception e) {
-            log.error("Error in Extracting JSON body form servlet request ", e);
+            log.error("JSON body form servlet request is empty", e);
         }
 
-        return null;
+        /*return empty String if body is empty, will handle exceptions due to this in serializer &
+        deserializer classes*/
+        return "";
     }
 }

@@ -16,7 +16,6 @@ public class WidgetConstraintCollection {
     private List<WidgetConstraint> displayConstraints;
 
     public WidgetConstraintCollection() {
-
     }
 
     /**

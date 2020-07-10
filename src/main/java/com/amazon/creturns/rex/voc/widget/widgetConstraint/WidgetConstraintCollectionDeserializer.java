@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 /**
  * This class deals with the conversion of JSON strings into WidgetConstraintCollection object
@@ -18,19 +19,19 @@ public class WidgetConstraintCollectionDeserializer {
     /**
      * It creates a WidgetConstraintCollection java object from HttpServletRequest body
      * @param httpServletRequest object to HttpServletRequest
-     * @return WidgetConstraintCollection java object
+     * @return Optional<WidgetConstraintCollection> java object
      */
-    public static WidgetConstraintCollection getConstraintCollectionObjectFromHttpRequest(HttpServletRequest
-                                                                                            httpServletRequest) {
+    public static Optional<WidgetConstraintCollection> getConstraintCollectionObjectFromHttpRequest(
+                                                        final HttpServletRequest httpServletRequest) {
 
         final String httpBodyAsJSON = HttpServletRequestProcessor.convertRequestBodyToJsonString(httpServletRequest);
 
         try {
-            return mapper.readValue(httpBodyAsJSON, WidgetConstraintCollection.class);
+            return Optional.ofNullable(mapper.readValue(httpBodyAsJSON, WidgetConstraintCollection.class));
         } catch (Exception ex) {
             log.error("Error in deserializing constraint Collection ", ex);
         }
 
-        return null;
+        return Optional.empty();
     }
 }
