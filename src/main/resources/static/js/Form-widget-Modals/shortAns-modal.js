@@ -3,14 +3,20 @@ function ClearShortAnsModal(){
    document.getElementById("inputTitle-1").value = "";
    document.getElementById("bookmark").value = "";
 }
+
+/**
+ * This method is triggered when user presses submit on "shortAns-modal". This method creates a POST  request to
+ * backend to create a new short Answer widget for form & redirect to edit-form page once the response is received
+ */
 function CreateShortAnsWidgetForForm() {
     let obj;
     let widgetName = $('#inputName-1').val(),title = $('#inputTitle-1').val();
     let bookmark = $('#bookmark').val();
     if (bookmark==null) bookmark="";
+    let url = "http://localhost:8080/form/"+formid+"/add-widget";
+
     ClearShortAnsModal();
 
-    let url = "http://localhost:8080/form/"+formid+"/add-widget";
     fetch(url,{
         method:'POST',
         headers:{'content-type' : 'application/json'},
@@ -30,5 +36,6 @@ function CreateShortAnsWidgetForForm() {
     then(data => obj=data).
     then(()=>console.log(obj)).
     then(()=>window.location.href = "http://localhost:8080/form/"+formid+"/edit");
+
     return false;
 }

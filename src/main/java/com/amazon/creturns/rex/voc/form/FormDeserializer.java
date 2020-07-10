@@ -13,45 +13,59 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class Deserialized JSON Strings into java object of Form class
+ */
 @Log4j2
 @Component
 public class FormDeserializer {
     @Autowired
     private  WidgetDeserializer widgetDeserializer;
+
     private static final ObjectMapper mapper = new ObjectMapper();
 
     FormDeserializer() {
     }
 
-    //deserialize the JsonString fetched from DB
+    /**
+     * deserialize the JSON String of form Item into java object of Form class
+     * @param jsonString the JSON String to be deserialized
+     * @return the deserialized Form object
+     */
     public Form deserialize(final String jsonString) {
         try {
-            JSONObject jsonObject = new JSONObject(jsonString);
-            String formId = jsonObject.getString("formId");
-            String formName = jsonObject.getString("formName");
-            String formStatus = jsonObject.getString("formStatus");
-            int formVersion = jsonObject.getInt("formVersion");
-            AuditingInfo auditingInfo = mapper.readValue(jsonObject.getJSONObject("metaData").toString(), AuditingInfo.class);
+            final JSONObject jsonObject = new JSONObject(jsonString);
+
+            final String formId = jsonObject.getString("formId");
+            final String formName = jsonObject.getString("formName");
+            final String formStatus = jsonObject.getString("formStatus");
+            final int formVersion = jsonObject.getInt("formVersion");
+            final AuditingInfo auditingInfo = mapper.readValue(jsonObject.getJSONObject("metaData").toString(), AuditingInfo.class);
 
             //deserialize widgets array
-            List<AbstractWidget> widgets = new ArrayList<>();
-            JSONArray widgetsJSONArray = jsonObject.getJSONArray("widgets");
+            final List<AbstractWidget> widgets = new ArrayList<>();
+
+            final JSONArray widgetsJSONArray = jsonObject.getJSONArray("widgets");
             for (int i = 0; i < widgetsJSONArray.length(); i++) {
-                String element = widgetsJSONArray.getString(i);
-                widgets.add(widgetDeserializer.deserialize(element, widgetDeserializer.getWidgetType(element)));
+
+                final String element = widgetsJSONArray.getString(i);
+                final String type = widgetDeserializer.getValueForKeyInJSONString("widgetType", element);
+
+                widgets.add(widgetDeserializer.deserialize(element, type));
             }
 
             //creating the form
-            Form form = new Form(formName);
+            final Form form = new Form(formName);
             form.setFormId(formId);
             form.setFormStatus(formStatus);
             form.setFormVersion(formVersion);
             form.setMetaData(auditingInfo);
             form.setWidgets(widgets);
+
             return form;
+
         } catch (Exception ex) {
-            log.error("Error in Deserializing Form JSON String" + ex.getMessage());
-            ex.printStackTrace();
+            log.error("Error in Deserializing Form JSON String", ex);
         }
         return null;
     }

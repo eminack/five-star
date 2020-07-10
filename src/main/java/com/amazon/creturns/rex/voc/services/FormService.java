@@ -13,109 +13,191 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * This service class deals with all the methods for Form
+ */
 @Service
 public class FormService {
+
     @Autowired
     private FormRepository formRepository;
+
     @Autowired
     private WidgetProcessorFactory widgetProcessorFactory;
 
+    /**
+     * create a Form object , save it to DB , & return the object
+     * @param hashMap hashMap containing the values for keys 'formName' & 'userCreated'
+     * @return the created object for form
+     */
     public Form createNewForm(final HashMap<String, String> hashMap) {
-        Form form = new Form(hashMap.get("formName"));
+        final Form form = new Form(hashMap.get("formName"));
         form.getMetaData().setUserCreated(hashMap.get("userCreated"));
         formRepository.save(form);
         return form;
     }
 
-    public Form addWidget(String formId, AbstractWidget obj) {
-        //validate the widget
-        obj = widgetProcessorFactory.getWidgetProcessor(obj.getWidgetType()).process(obj);
-        //get the form from db , add widget , save it back to db
-        Form form = formRepository.getFormById(formId);
-        form.addWidget(obj);
+    /**
+     * Process the Widget to be added , fetch the Form from DB using formID, add the Widget , update lastUpdateTime,
+     * save it back to DB & return the fetched Form
+     * @param formId ID of form in which the widget needs to be added
+     * @param obj object of widget to be added to form
+     * @return the updated Form object
+     */
+    public Form addWidget(final String formId, final AbstractWidget obj) {
+        /* process  the widget */
+        final AbstractWidget processedWidget = widgetProcessorFactory.getWidgetProcessor(obj.getWidgetType()).process(obj);
+
+        /* get the form from db , add widget , save it back to db*/
+        final Form form = formRepository.getFormById(formId);
+        form.addWidget(processedWidget);
         form.updateLastUpdateTime();
 
         formRepository.save(form);
         return form;
     }
 
+    /**
+     * delete Form in form table using formId
+     * @param formId the ID of form to be deleted in DB table
+     */
     public void deleteFormById(final String formId) {
         formRepository.deleteFormById(formId);
     }
 
+    /**
+     * fetch Form from DB
+     * @param id the ID of form to be fetched
+     * @return the fetched Form object
+     */
     public Form getFormById(final String id) {
-        Form form = formRepository.getFormById(id);
+        final Form form = formRepository.getFormById(id);
         form.updateLastServeTime();
+
         formRepository.save(form);
         return form;
     }
 
+    /**
+     * fetch all Form from DB
+     * @return the list of Form object
+     */
     public List<Form> getAllForms() {
         return formRepository.getAllForms();
     }
 
+    /**
+     * Method to delete Widget from Form : fetch Form from form Table , remove a particular widget from widget list
+     * of Form using it's widgetId, update constraints of rest of the widget of Form , set the lastUpdate time to
+     * current time, save it back to form Table & also return the Form object
+     * @param formId Id of form which contains the Widget
+     * @param widgetId Id of widget which is to be deleted
+     * @return the updated Form object
+     */
     public Form deleteWidgetById(final String formId, final String widgetId) {
-        Form form = formRepository.getFormById(formId);
+        final Form form = formRepository.getFormById(formId);
 
         form.removeWidgetById(widgetId);
+
         /* whenever we delete a widget , remove constraints with this widget
             from rest of the widgets in Form */
         form.removeThisWidgetFromConstraintsOfAllWidgets(widgetId);
-        form.updateLastUpdateTime();
 
+        form.updateLastUpdateTime();
         formRepository.save(form);
+
         return form;
     }
 
-    @SuppressWarnings("unchecked")
-    public Form updateWidget(final String formId, AbstractWidget newObj) {
-        newObj = widgetProcessorFactory.getWidgetProcessor(newObj.getWidgetType()).process(newObj);
+    /**
+     * Update a particular Widget's field in Form. The widget to be updated is found by widgetId & it's fields are
+     * updated by using the fields from newObj
+     * @param formId ID of form which contains the widget to be updated
+     * @param widgetId ID of widget to be updated
+     * @param newObj the fields of this object , will be used to update the fields of widget with 'widgetId'
+     * @return the updated Form object
+     */
+    public Form updateWidget(final String formId, final String widgetId, final AbstractWidget newObj) {
+        /*process the new widget*/
+        final AbstractWidget processedWidget = widgetProcessorFactory.getWidgetProcessor(newObj.getWidgetType()).process(newObj);
 
-        Form form = formRepository.getFormById(formId);
+        final Form form = formRepository.getFormById(formId);
+
         //find the widget to be updated and call update on its object
-        form.updateWidgetById(newObj);
+        form.updateWidgetById(widgetId, processedWidget);
+
         form.updateLastUpdateTime();
         formRepository.save(form);
+
         return form;
 
     }
 
+    /**
+     * fetch widget from widgetList of Form object
+     * @param formId ID of form which contains the widget
+     * @param widgetId ID of widget which needs to be fetched
+     * @return the fetched widget object
+     */
     public AbstractWidget getWidgetById(final String formId, final String widgetId) {
-        Form form = formRepository.getFormById(formId);
+        final Form form = formRepository.getFormById(formId);
 
-        AbstractWidget obj = form.getWidgetById(widgetId);
+        final AbstractWidget obj = form.getWidgetById(widgetId);
         obj.updateLastServeTime();
 
         formRepository.save(form);
         return obj;
-
     }
 
+    /**
+     * sets the status of Form object as published. For this 1st fetch the object from form Table ,update it's status &
+     * audit info then save it back to form table
+     * @param formId ID of form whose status is to be published
+     */
     public void publishForm(final String formId) {
-        Form form = formRepository.getFormById(formId);
+        final Form form = formRepository.getFormById(formId);
+
         form.setFormStatus("PUBLISHED");
         form.updateLastUpdateTime();
+
         formRepository.save(form);
     }
 
+    /**
+     * Add constraints to a particular widget of Form.
+     *
+     * @param formId ID of form containing the widget
+     * @param widgetId ID of form whose constraints field needs to be set
+     * @param httpServletRequest httpRequest containing the JSON String of WidgetConstraintCollection , basically the
+     *                           constraints field of that widget will be set to object of this JSON
+     */
     public void addConstraintsToWidget(final String formId, final String widgetId,
-                                       HttpServletRequest httpServletRequest) {
-        WidgetConstraintCollection constraintCollection = WidgetConstraintCollectionDeserializer.
+                                       final HttpServletRequest httpServletRequest) {
+
+        final WidgetConstraintCollection constraintCollection = WidgetConstraintCollectionDeserializer.
                 getConstraintCollectionObjectFromHttpRequest(httpServletRequest);
 
         /*find the widget and set it's constraints field
         * with the constraints received in httpRequestBody*/
-        Form form = formRepository.getFormById(formId);
+        final Form form = formRepository.getFormById(formId);
         form.addConstraintsToWidget(widgetId, constraintCollection);
-        form.updateLastUpdateTime();
 
+        form.updateLastUpdateTime();
         formRepository.save(form);
     }
 
-    public void deleteAllConstraintsFromWidget(String formId, String widgetId) {
+    /**
+     * set the constraints field of a particular widget of form to null
+     *
+     * @param formId ID of form containing the widget
+     * @param widgetId ID of widget whose constraints need to be deleted
+     */
+    public void deleteAllConstraintsFromWidget(final String formId, final String widgetId) {
         /* find the widget and set its constraint field to null*/
-        Form form = formRepository.getFormById(formId);
+        final Form form = formRepository.getFormById(formId);
         form.deleteAllConstraintsFromWidget(widgetId);
+
+        /*update the Audit info of form & save it back to form Table in DB*/
         form.updateLastUpdateTime();
         formRepository.save(form);
     }

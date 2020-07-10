@@ -10,24 +10,44 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ShortAnswer extends AbstractWidget {
+    /**
+     * Title of the short answer widget
+     */
     private String title;
+
+    /**
+     * hint / placeholder to be displayed in text area
+     */
     private String hint;
+
 
     public ShortAnswer() {
         super();
     }
 
+    /**
+     * updates this object with new values of title, hint attributes & also updates
+     * the widgetVersion, lastUpdateTime, widgetName attributes
+     *
+     * @param widget object which contains the new values for title,hint,Name attributes
+     */
     @JsonIgnore
     @Override
-    public void updateDetails(AbstractWidget widget) {
-        widget = (ShortAnswer) widget;
+    public void updateDetails(final AbstractWidget widget) {
+        final ShortAnswer typeCastedWidget = (ShortAnswer) widget;
+
         this.getMetaData().updateLastUpdateTime();
         this.setWidgetVersion(this.getWidgetVersion() + 1);
-        this.setWidgetName(widget.getWidgetName());
-        this.title = ((ShortAnswer) widget).title;
-        this.hint = ((ShortAnswer) widget).hint;
+
+        this.setWidgetName(typeCastedWidget.getWidgetName());
+        this.title = typeCastedWidget.title;
+        this.hint = typeCastedWidget.hint;
     }
 
+    /**
+     * creates a widget Item from java object of this class which is to be saved in 'widget' table
+     * @return created widget Item
+     */
     @JsonIgnore
     @Override
     public Item createDynamoDbItem() {

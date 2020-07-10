@@ -16,6 +16,9 @@ public class WebConfig implements WebMvcConfigurer {
         return new CookieLocaleResolver();
     }
 
+    /**
+     * Add locale change interceptor to registry at start of application
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();

@@ -14,7 +14,14 @@ import java.util.List;
 @Getter
 @Setter
 public class FormResponse extends AbstractResponse {
+    /**
+     * Id of form for which the customer responded
+     */
     private String formId;
+
+    /**
+     * list containing the responses for various widgets of Form
+     */
     private List<AbstractWidgetResponse> responseList;
 
     FormResponse() {
@@ -22,13 +29,19 @@ public class FormResponse extends AbstractResponse {
         responseList = new ArrayList<>();
     }
 
+    /**
+     * create formResponse Item from this java object which will be saved in 'formResponse' table
+     * @return the created java object
+     */
     @JsonIgnore
     public Item createDynamoDbItem() {
-        //Responses of widget in Form are saved as Json String in DB
-        List<String> widgetResponses = new ArrayList<>();
-        for (AbstractWidgetResponse ab : responseList) {
+
+        //each element of responseList is saved as String in "responseList" key of Item
+        final List<String> widgetResponses = new ArrayList<>();
+        for (final AbstractWidgetResponse ab : responseList) {
             widgetResponses.add(WidgetResponseSerializer.serialize(ab));
         }
+
         return new Item()
                 .withPrimaryKey("userId", this.getUserId(),
                                 "responseId", this.getResponseId())

@@ -10,8 +10,19 @@ import java.util.UUID;
 @Getter
 @Setter
 public abstract class AbstractResponse implements DynamoDbMethods {
+    /**
+     * responseId is unique for every response.
+     */
     private String responseId;
+
+    /**
+     * user who submitted the response.
+     */
     private String userId;
+
+    /**
+     * time at which the response is created.
+     */
     private String createTime;
 
     protected AbstractResponse() {

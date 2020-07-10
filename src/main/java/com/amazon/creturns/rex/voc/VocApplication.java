@@ -14,6 +14,9 @@ public class VocApplication {
         openHomePage();
     }
 
+    /**
+     * this method runs on start of the application
+     */
     private static void openHomePage() {
         try {
             URI homepage = new URI("http://localhost:8080/");

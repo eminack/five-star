@@ -7,8 +7,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public abstract class AbstractWidgetResponse extends AbstractResponse {
+    /**
+     * Id of widget for which the response is submitted
+     */
     private String widgetId;
-    private String widgetType;
+
+    /**
+     * Type of widget for which the response is submitted
+     */
+    private String widgetType; //("FIVE_STAR,"SHORT_ANSWER")
 
     protected AbstractWidgetResponse() {
         super();

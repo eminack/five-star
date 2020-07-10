@@ -14,41 +14,57 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class handles the request for serving main page
+ */
 @Controller
 @CrossOrigin
 public class RootController {
+
     @Autowired
     private WidgetService widgetService;
+
     @Autowired
     private FormService formService;
+
     @Autowired
     private LanguageRepository languageRepository;
 
+    /**
+     * This method handles the request for serving main-page.html.
+     * The widgetService  & formService fetch all the entries from 'widget' & 'form' table respectively
+     * @param model
+     * @return "main-page.html"
+     */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String mainPage(Model model) {
-        List<AbstractWidget> widgetList = widgetService.getAllWidgets();
-        List<Form> formList = formService.getAllForms();
+        final List<AbstractWidget> widgetList = widgetService.getAllWidgets();
+        final List<Form> formList = formService.getAllForms();
+
         model.addAttribute("forms", formList);
         model.addAttribute("widgets", widgetList);
+
         return "main-page";
     }
 
-    /* this controller is just for testing purposes to save string ID
-      for localization in DB , will be removed in final versions
+    /**
+     * this method is just for testing purposes to save string ID for localization in DB , will be removed
+     * in final versions
+     * @param receivedList a list of LanguageEntity which is to be saved in 'language' table
+     * @return A list of All the LanguageEntities which are saved into 'language' table
      */
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveLanguageEntities", method = RequestMethod.POST)
     @ResponseBody
-    public List<LanguageEntity> saveInDB(@RequestBody final List<LanguageEntity> l) {
-        List<LanguageEntity> list = new ArrayList<>();
-           for (LanguageEntity languageEntity : l) {
-               languageRepository.insertIntoDynamoDb(languageEntity);
-               list.add(languageRepository.findByLocaleAndStringId(
-                       languageEntity.getLocale(),
-                       languageEntity.getStringId()
-                       )
-               );
-           }
-           return list;
+    public List<LanguageEntity> saveInDB(@RequestBody final List<LanguageEntity> receivedList) {
+        final List<LanguageEntity> list = new ArrayList<>();
 
+        for (LanguageEntity languageEntity : receivedList) {
+            languageRepository.insertIntoDynamoDb(languageEntity);
+
+            list.add(languageRepository.findByLocaleAndStringId(languageEntity.getLocale(),
+                       languageEntity.getStringId()));
+
+        }
+        return list;
     }
 }

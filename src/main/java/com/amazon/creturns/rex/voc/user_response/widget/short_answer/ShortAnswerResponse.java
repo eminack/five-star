@@ -10,16 +10,26 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ShortAnswerResponse extends AbstractWidgetResponse {
+    /**
+     * it contains the answer given by customer for SHORT_ANSWER widget
+     */
     private String responseText;
+
     public ShortAnswerResponse() {
         super();
     }
 
+    /**
+     * create widgetResponse Item from this java object to be save into 'widgetResponse' table
+     * @return created  Item
+     */
     @JsonIgnore
     public Item createDynamoDbItem() {
         return new Item()
-                .withPrimaryKey("userId", this.getUserId(), "responseId", this.getResponseId())
-                .withString("responseJSONString", WidgetResponseSerializer.serialize(this));
+                .withPrimaryKey("userId", this.getUserId(),
+                        "responseId", this.getResponseId())
+                .withString("responseJSONString",
+                        WidgetResponseSerializer.serialize(this));
     }
 
 }

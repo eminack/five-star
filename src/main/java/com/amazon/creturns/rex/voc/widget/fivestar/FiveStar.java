@@ -10,28 +10,53 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FiveStar extends AbstractWidget {
+
+    /**
+     * title/question to be displayed in fivestar widget
+     */
     private String title;
-    private String hint1, hint2, hint3, hint4, hint5;
+
+    /**
+     * below is on hover text for each of the 5 stars
+     */
+    private String hint1;
+    private String hint2;
+    private String hint3;
+    private String hint4;
+    private String hint5;
+
 
     public FiveStar() {
         super();
     }
 
+    /**
+     * updates this object with new values of title, all hint attributes & also updates
+     * the widgetVersion, lastUpdateTime, widgetName attributes
+     *
+     * @param widget object which contains the new values for title,hints,Name attributes
+     */
     @JsonIgnore
     @Override
-    public void updateDetails(AbstractWidget widget) {
-        widget = (FiveStar) widget;
+    public void updateDetails(final AbstractWidget widget) {
+        final FiveStar typeCastedWidget = (FiveStar) widget;
+
         this.getMetaData().updateLastUpdateTime();
         this.setWidgetVersion(this.getWidgetVersion() + 1);
-        this.setWidgetName(widget.getWidgetName());
-        this.title = ((FiveStar) widget).title;
-        this.hint1 = ((FiveStar) widget).hint1;
-        this.hint2 = ((FiveStar) widget).hint2;
-        this.hint3 = ((FiveStar) widget).hint3;
-        this.hint4 = ((FiveStar) widget).hint4;
-        this.hint5 = ((FiveStar) widget).hint5;
+
+        this.setWidgetName(typeCastedWidget.getWidgetName());
+        this.title = typeCastedWidget.title;
+        this.hint1 = typeCastedWidget.hint1;
+        this.hint2 = typeCastedWidget.hint2;
+        this.hint3 = typeCastedWidget.hint3;
+        this.hint4 = typeCastedWidget.hint4;
+        this.hint5 = typeCastedWidget.hint5;
     }
 
+    /**
+     * creates a widget Item from java object of this class which is to be saved in 'widget' table
+     * @return created widget Item
+     */
     @JsonIgnore
     @Override
     public Item createDynamoDbItem() {

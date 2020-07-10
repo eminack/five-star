@@ -13,8 +13,11 @@ function CreateFiveStarWidget() {
     let widgetName = $('#inputName').val(),title = $('#inputTitle').val();
     let smiley1 = $('#smiley1').val(),smiley2 = $('#smiley2').val(),smiley3 = $('#smiley3').val();
     let smiley4 = $('#smiley4').val(),smiley5 = $('#smiley5').val();
+
     let url = "http://localhost:8080/widget";
+
     hideFiveStarModal();
+
     fetch(url,{
         method:'POST',
         headers:{'content-type' : 'application/json'},
@@ -36,5 +39,6 @@ function CreateFiveStarWidget() {
     }).then(res => res.json()).
     then(data => obj=data).
     then(()=>console.log(obj)).then(()=>window.location.href = "http://localhost:8080/widget/" + obj["widgetId"]);
+
     return false;
 }

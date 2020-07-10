@@ -12,18 +12,31 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+/**
+ * This class deals with all incoming  request for Form responses
+ */
 @Controller
 @CrossOrigin
 public class FormResponseController {
+
     @Autowired
     private FormResponseService formResponseService;
 
+    /**
+     * This method handles the incoming form response & saves it to 'formResponse' table
+     * @param httpServletRequest the incoming request
+     * @return a FormResponse object for saved response
+     */
     @RequestMapping(value = "/formResponse", method = RequestMethod.POST)
     @ResponseBody
-    public FormResponse saveResponse(HttpServletRequest httpServletRequest) {
+    public FormResponse saveResponse(final HttpServletRequest httpServletRequest) {
         return formResponseService.save(httpServletRequest);
     }
 
+    /**
+     * method for fetching all responses from 'formResponse' table
+     * @return a List containing FormResponse object of all requests
+     */
     @RequestMapping(value = "/allFormResponse", method = RequestMethod.GET)
     @ResponseBody
     public List<FormResponse> getAllFormResponses() {
@@ -31,8 +44,9 @@ public class FormResponseController {
     }
 
 
-    /* this is just for testing purposes to clear the widget Response table
-       , will be removed in the final versions*/
+    /**
+     *  this is just for testing purposes to clear the 'formResponse' table , will be removed in the final versions
+     */
     @RequestMapping(value = "/clearFormResponseTable", method = RequestMethod.GET)
     @ResponseBody
     public String clearFormResponseTable() {

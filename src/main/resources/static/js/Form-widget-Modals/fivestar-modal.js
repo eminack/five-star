@@ -1,20 +1,28 @@
-function hideFiveStarModal() {
-    document.getElementById("inputName").value = "";
-    document.getElementById("inputTitle").value = "";
-    document.getElementById("smiley1").value = "";
-    document.getElementById("smiley2").value = "";
-    document.getElementById("smiley3").value = "";
-    document.getElementById("smiley4").value = "";
-    document.getElementById("smiley5").value = "";
+function hideFormFiveStarModal() {
+    document.getElementById("inputName-11").value = "";
+    document.getElementById("inputTitle-11").value = "";
+    document.getElementById("smiley1-11").value = "";
+    document.getElementById("smiley2-11").value = "";
+    document.getElementById("smiley3-11").value = "";
+    document.getElementById("smiley4-11").value = "";
+    document.getElementById("smiley5-11").value = "";
     $('#fivestarModal').modal('hide');
 }
+
+/**
+ * This method is triggered when user presses submit on "fivestar-modal". This method creates a POST  request to
+ * backend to create a new FiveStar widget for form & redirect to edit-form page once the response is received
+ */
 function CreateFiveStarWidgetForForm() {
     let obj;
-    let widgetName = $('#inputName').val(),title = $('#inputTitle').val();
-    let smiley1 = $('#smiley1').val(),smiley2 = $('#smiley2').val(),smiley3 = $('#smiley3').val();
-    let smiley4 = $('#smiley4').val(),smiley5 = $('#smiley5').val();
+    let widgetName = $('#inputName-11').val(),title = $('#inputTitle-11').val();
+    let smiley1 = $('#smiley1-11').val(),smiley2 = $('#smiley2-11').val(),smiley3 = $('#smiley3-11').val();
+    let smiley4 = $('#smiley4-11').val(),smiley5 = $('#smiley5-11').val();
+
     let url = "http://localhost:8080/form/" + formid + "/add-widget";
-    hideFiveStarModal();
+
+    hideFormFiveStarModal();
+
     fetch(url,{
         method:'POST',
         headers:{'content-type' : 'application/json'},
@@ -36,5 +44,6 @@ function CreateFiveStarWidgetForForm() {
     }).then(res => res.json()).
     then(data => obj=data).
     then(()=>console.log(obj)).then(()=>window.location.href = "http://localhost:8080/form/" + obj["formId"]+"/edit");
+
     return false;
 }

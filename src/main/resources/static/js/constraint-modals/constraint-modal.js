@@ -1,5 +1,6 @@
-/* Either of Checkbox is clicked , hide-show
-corresponding labels
+
+/**
+ * It is called when any checkbox in clicked on constraint-modal
  */
 function checkBoxClicked() {
     var checkbox_1 = document.getElementById("checkbox-1");
@@ -19,6 +20,11 @@ function showAlertMsg() {
     window.alert("Enter Correct details");
 }
 
+/**
+ * this method reads the value from fields on constraint-modal & create list of constraints which is then
+ * sent to backend
+ * @returns {boolean}
+ */
 function createConstraint() {
     var checkbox_1 = document.getElementById("checkbox-1");
     var checkbox_2 = document.getElementById("checkbox-2");
@@ -29,9 +35,9 @@ function createConstraint() {
     let displayConstraintList = [];
 
     if (!checkbox_1.checked && !checkbox_2.checked) return false;
+
     if (checkbox_1.checked) {
         makeItMandatoryConstraintList.push({widgetId:WidgetIdToBeConstrained,responseId:""});
-        console.log("checkbox-1 checked");
     }
     /* else means checkbox 2 is checked*/
     else {
@@ -53,8 +59,14 @@ function createConstraint() {
     return false;
 }
 
+/**
+ * function to make POST request for creation of constraints & redirect to edit-form page after response id received
+ * @param mandatoryList contains the WidgetConstraint objects
+ * @param displayList contains the WidgetConstraint objects
+ */
 function makePostRequestToBackend(mandatoryList, displayList) {
     let url = "http://localhost:8080/form/" + formid + "/widget/"+WidgetIdToBeConstrained+"/add-constraint";
+
     fetch(url,{
         method:'POST',
         headers:{'content-type' : 'application/json'},
@@ -64,11 +76,19 @@ function makePostRequestToBackend(mandatoryList, displayList) {
         })
     }).then(res => res.toString())
         .then(()=>window.location.href = "http://localhost:8080/form/"+formid+"/edit");
+
 }
 
+/**
+ * This methods extracts the numbers from input string , get the corresponding widgetId for that serial number,
+ * then create a constraint list out of it. Constraint list contains the WidgetConstraint object
+ * @param userString
+ * @returns {[]}
+ */
 function createConstraintListFromUserString(userString) {
     var constraintList = [];
     if (userString === "") return constraintList;
+
     var userList = userString.split(",");
 
     userList.forEach(function (value) {
@@ -84,6 +104,11 @@ function createConstraintListFromUserString(userString) {
     return constraintList;
 }
 
+/**
+ * validate that the serial number entered by user is mapped to some widgetId
+ * @param userResponse the serial number
+ * @returns {boolean} true if it has a widgetId, false otherwise
+ */
 function validateUserResponse(userResponse) {
     if (userResponse < 0 || userResponse >= WidgetIdList.length) return false;
 

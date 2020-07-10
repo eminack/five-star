@@ -136,12 +136,15 @@ function deleteFiveStarValue(widgetId) {
 function updateShortAnswerResponse(widgetId,response) {
     if (response==="") delete globalResponse[widgetId];
     else globalResponse[widgetId] = {widgetId:widgetId,widgetType: "SHORT_ANSWER",responseText:response,userId:"xyz"};
+
     updateDOM();
 }
 
 function validateForm() {
     let mandatoryList = Array.from(mandatorySet);
+
     for (let i = 0 ; i < mandatoryList.length; i++) {
+
         if (mandatoryList[i] in globalResponse) {
             continue;
         }
@@ -153,11 +156,15 @@ function validateForm() {
 function submitForm() {
     let obj;
     var responseList = [];
+
     if (validateForm()){
+
         for (const [key, value] of Object.entries(globalResponse)) {
             responseList.push(value);
         }
+
          var url = "http://localhost:8080/formResponse";
+
          fetch(url, {
          method: 'POST',
              headers: {'content-type': 'application/json'},
@@ -170,6 +177,7 @@ function submitForm() {
              .then(data => obj = data)
              .then(() => console.log(obj))
              .then(() => alert(alertMsg)).then(() => window.location.href = "http://localhost:8080/");
+
     } else {
         window.alert("Please Fill the mandatory fields");
     }

@@ -1,4 +1,4 @@
-function ClearShortAnsEditModal() {
+function ClearSingleShortAnsEditModal() {
     document.getElementById("inputName-2").value = "";
     document.getElementById("inputTitle-2").value = "";
     document.getElementById("bookmark-1").value = "";
@@ -8,8 +8,11 @@ function EditShortAnsWidget() {
     let widgetName = $('#inputName-2').val(),title = $('#inputTitle-2').val();
     let bookmark = $('#bookmark-1').val();
     if (bookmark==null) bookmark="";
+
     let url = "http://localhost:8080/widget/"+SingleWidgetIdToBeEdited+"/edit";
-    ClearShortAnsEditModal();
+
+    ClearSingleShortAnsEditModal();
+
     fetch(url,{
         method:'POST',
         headers:{'content-type' : 'application/json'},
@@ -24,5 +27,6 @@ function EditShortAnsWidget() {
     then(data => obj=data).
     then(()=>console.log(obj)).
     then(()=>window.location.href = "http://localhost:8080/widget/" + obj["widgetId"]);
+
     return false;
 }

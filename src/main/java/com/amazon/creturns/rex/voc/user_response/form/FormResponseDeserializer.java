@@ -13,20 +13,34 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+/**
+ * This class has methods to deserialize JSON String into FormResponse object
+ */
 @Log4j2
 @Component
 public class FormResponseDeserializer {
+
     @Autowired
     private WidgetResponseDeserializer widgetResponseDeserializer;
 
     FormResponseDeserializer() {
     }
 
-    //deserialize JSON String to FormResponse Object
-    public FormResponse deserializeJSONString(String jsonString) {
+    /**
+     * create a FormResponse object from JSON String
+     * @param jsonString the JSON String
+     * @return the created object
+     */
+    public FormResponse deserializeJSONString(final String jsonString) {
         try {
+            final String responseId;
+            final String userId;
+            final String createTime;
+            final String formId;
+            final List<AbstractWidgetResponse> responses = new ArrayList<>();
+
             JSONObject jsonObject = new JSONObject(jsonString);
-            String responseId;
 
             if (jsonObject.has("responseId")) {
                 responseId = jsonObject.getString("responseId");
@@ -34,24 +48,31 @@ public class FormResponseDeserializer {
                 responseId = UUID.randomUUID().toString().replaceAll("-", "");
             }
 
-            String userId = jsonObject.getString("userId");
+            userId = jsonObject.getString("userId");
 
-            String createTime;
             if (jsonObject.has("createTime")) {
                 createTime = jsonObject.getString("createTime");
             } else {
                 createTime =  LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
             }
 
-            String formId = jsonObject.getString("formId");
+            formId = jsonObject.getString("formId");
 
-            List<AbstractWidgetResponse> responses = new ArrayList<>();
-            JSONArray jsonArray = jsonObject.getJSONArray("responseList");
+            /*
+             The responseList key in jsonObject can have Widgets stored as either JSON Strings or JSONObject
+             hence we check what type it is . If JSONObject then we convert that into JSON String
+             Then we convert each of those Strings into java object of a concrete subclass of AbstractWidgetResponse
+            */
+            final JSONArray jsonArray = jsonObject.getJSONArray("responseList");
             for (int i = 0; i < jsonArray.length(); i++) {
-                String element = (jsonArray.get(i) instanceof JSONObject) ?
+
+                final String widgetResponseJSONString = (jsonArray.get(i) instanceof JSONObject) ?
                                   jsonArray.getJSONObject(i).toString() : jsonArray.getString(i);
 
-                responses.add(widgetResponseDeserializer.deserialize(element, widgetResponseDeserializer.getWidgetType(element)));
+                final String responseType = widgetResponseDeserializer.
+                        getValueForKeyInJSONString("widgetType",widgetResponseJSONString);
+
+                responses.add(widgetResponseDeserializer.deserialize(widgetResponseJSONString,responseType));
             }
 
             //create the FormResponse Object
@@ -63,9 +84,9 @@ public class FormResponseDeserializer {
             formResponse.setResponseList(responses);
 
             return formResponse;
+
         } catch (Exception ex) {
-            log.error("Error in deserializing JSON to FormResponse Object " + ex.getMessage());
-            ex.printStackTrace();
+            log.error("Error in deserializing JSON to FormResponse Object " , ex);
         }
         return null;
     }
